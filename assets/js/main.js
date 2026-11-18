@@ -465,6 +465,7 @@
   let timers = [];
   function labReset() {
     timers.forEach(clearTimeout); timers = [];
+    $("#labRun").disabled = false; // a cancelled run must not leave the button disabled
     const t = TESTS[testSel.value];
     ["#tubeBlank", "#tubeSample"].forEach(id => { const s = $(id); s.classList.remove("heating", "dropping"); applyState(s, t.reagent); });
     const isM = sampSel.value === "mystery";
