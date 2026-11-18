@@ -416,19 +416,19 @@
   /* ---------------- Sensor generations ---------------- */
   const chips = arr => `<div class="flowchips">${arr.map((c, i) => (i ? `<span class="arr">→</span>` : "") + `<span class="fchip" style="--c:${c[1]}">${c[0]}</span>`).join("")}</div>`;
   const GEN = {
-    g1: { t: "First generation: oxygen as electron acceptor", flow: [["Glucose", "#f59e0b"], ["GOx (FAD)", "#16a34a"], ["O₂ → H₂O₂", "#06b6d4"], ["Pt electrode (+0.6 V)", "#a1a1aa"]],
+    g1: { t: "First generation: Oxygen as electron acceptor", flow: [["Glucose", "#f59e0b"], ["GOx (FAD)", "#16a34a"], ["O₂ → H₂O₂", "#06b6d4"], ["Pt electrode (+0.6 V)", "#a1a1aa"]],
       eq: ["Glucose + O₂ <span class='arrow'>—GOx→</span> gluconolactone + H₂O₂", "H₂O₂ <span class='arrow'>→</span> O₂ + 2H⁺ + 2e⁻"],
       pro: "Simple, well understood; GOx needs no added chemicals.", con: "Depends on tissue O₂ (oxygen deficit); high potential oxidises interferents — needs layered membranes.", ex: "Clark & Updike–Hicks electrodes; Dexcom and Medtronic CGMs.", ref: [6, 7, 2] },
-    g2: { t: "Second generation: artificial mediators", flow: [["Glucose", "#f59e0b"], ["GOx (FAD)", "#16a34a"], ["Mediator ox ⇄ red", "#7c3aed"], ["Electrode (low E)", "#a1a1aa"]],
+    g2: { t: "Second generation: Artificial mediators", flow: [["Glucose", "#f59e0b"], ["GOx (FAD)", "#16a34a"], ["Mediator ox ⇄ red", "#7c3aed"], ["Electrode (low E)", "#a1a1aa"]],
       eq: ["GOx(FADH₂) + 2M<sub>ox</sub> <span class='arrow'>→</span> GOx(FAD) + 2M<sub>red</sub> + 2H⁺", "M<sub>red</sub> <span class='arrow'>→</span> M<sub>ox</sub> + e⁻"],
       pro: "Independent of O₂; works at low potential so fewer interferences.", con: "Mediator must not leach out (toxicity) — solved by tethering it to polymers (“wired enzyme”).", ex: "Ferrocene (1984); ferricyanide in test strips; osmium redox polymer in FreeStyle Libre.", ref: [8, 1] },
-    g3: { t: "Third generation: direct electron transfer", flow: [["Glucose", "#f59e0b"], ["Enzyme (FAD)", "#16a34a"], ["Nanostructured electrode", "#a1a1aa"]],
+    g3: { t: "Third generation: Direct electron transfer", flow: [["Glucose", "#f59e0b"], ["Enzyme (FAD)", "#16a34a"], ["Nanostructured electrode", "#a1a1aa"]],
       eq: ["Enzyme(FADH₂) <span class='arrow'>→</span> Enzyme(FAD) + 2H⁺ + 2e⁻ (to electrode)"],
       pro: "Shortest electron path; no O₂ or mediator; low potential.", con: "In GOx the FAD is buried deep in the protein, so direct transfer is slow; needs nanomaterials (carbon nanotubes, graphene, gold nanoparticles) or engineered enzymes.", ex: "Mostly research; some FAD-dependent glucose dehydrogenase sensors.", ref: [2, 3] },
-    g4: { t: "“Fourth generation”: non-enzymatic", flow: [["Glucose", "#f59e0b"], ["Metal / metal-oxide surface (Pt, Au, Ni, Cu)", "#a1a1aa"]],
+    g4: { t: "“Fourth generation”: Non-enzymatic", flow: [["Glucose", "#f59e0b"], ["Metal / metal-oxide surface (Pt, Au, Ni, Cu)", "#a1a1aa"]],
       eq: ["Ni(OH)₂ + OH⁻ <span class='arrow'>→</span> NiOOH + H₂O + e⁻", "NiOOH + glucose <span class='arrow'>→</span> Ni(OH)₂ + gluconolactone"],
       pro: "No enzyme to degrade; potentially very long-lived and cheap.", con: "Poor selectivity; many need alkaline pH; surfaces are poisoned by chloride and proteins in body fluids.", ex: "Research sensors (nanostructured Ni, Cu, Pt alloys).", ref: [3] },
-    opt: { t: "Optical: fluorescent boronic-acid sensor", flow: [["Glucose", "#f59e0b"], ["Boronic-acid fluorophore", "#ec4899"], ["LED → fluorescence", "#22d3ee"], ["Photodiode", "#a1a1aa"]],
+    opt: { t: "Optical: Fluorescent boronic-acid sensor", flow: [["Glucose", "#f59e0b"], ["Boronic-acid fluorophore", "#ec4899"], ["LED → fluorescence", "#22d3ee"], ["Photodiode", "#a1a1aa"]],
       eq: ["R–B(OH)₂ + glucose (cis-diol) <span class='arrow'>⇌</span> cyclic boronate ester + 2H₂O  → fluorescence ↑"],
       pro: "Reversible binding — nothing is consumed — so the implant can last up to a year.", con: "Requires a minor procedure to insert and remove; periodic fingerstick calibration; on-skin transmitter must be worn over it.", ex: "Eversense (implanted under the skin of the upper arm).", ref: [14] }
   };
