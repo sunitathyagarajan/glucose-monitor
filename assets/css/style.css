@@ -91,7 +91,7 @@ section.module { max-width: 1180px; margin: 0 auto; padding: 56px 16px 24px; }
 .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 900px) { .g3, .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 640px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } body { font-size: 16px; } }
+@media (max-width: 640px) { .g2, .g3, .g4 { grid-template-columns: minmax(0, 1fr); } body { font-size: 16px; } }
 
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); min-width: 0; }
 .card h3:first-child, .card h4:first-child { margin-top: 0; }
@@ -121,7 +121,7 @@ section.module { max-width: 1180px; margin: 0 auto; padding: 56px 16px 24px; }
 .seg button { border: 0; background: transparent; padding: 7px 12px; font: inherit; font-size: .88rem; color: var(--ink-2); cursor: pointer; border-right: 1px solid var(--line); }
 .seg button:last-child { border-right: 0; }
 .seg button.on { background: var(--accent); color: #fff; }
-select, input[type="number"] { font: inherit; font-size: .92rem; padding: 7px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+select, input[type="number"] { max-width: 100%; font: inherit; font-size: .92rem; padding: 7px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
 input[type="range"] { width: 100%; accent-color: var(--accent); }
 label.ctl { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--ink-2); font-weight: 600; }
 .toggle { display: inline-flex; align-items: center; gap: 6px; font-size: .88rem; color: var(--ink-2); cursor: pointer; user-select: none; }
@@ -174,7 +174,7 @@ sup.cite a { text-decoration: none; font-size: .72em; color: var(--accent); font
 
 /* ---------- test tube lab ---------- */
 .lab { display: grid; grid-template-columns: 300px 1fr; gap: 20px; }
-@media (max-width: 860px) { .lab { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .lab { grid-template-columns: minmax(0, 1fr); } }
 .bench { display: flex; align-items: flex-end; justify-content: center; gap: 28px; min-height: 330px; background: linear-gradient(var(--surface-2), var(--surface)); border-radius: 12px; padding: 16px; position: relative; }
 .tube-svg { width: 92px; height: 300px; overflow: visible; }
 .tube-label { text-align: center; font-size: .8rem; color: var(--ink-2); margin-top: 4px; }
@@ -201,7 +201,7 @@ sup.cite a { text-decoration: none; font-size: .72em; color: var(--accent); font
 .tl-item.on .dot, .tl-item:hover .dot { background: var(--era, var(--accent)); transform: scale(1.25); }
 .tl-item.on .lbl { color: var(--ink); font-weight: 600; }
 .tl-detail { display: grid; grid-template-columns: 140px 1fr; gap: 18px; align-items: center; }
-@media (max-width: 640px) { .tl-detail { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .tl-detail { grid-template-columns: minmax(0, 1fr); } }
 .tl-detail svg { width: 140px; height: 110px; }
 .era-legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: .8rem; color: var(--ink-2); margin-bottom: 4px; }
 .era-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
@@ -212,7 +212,7 @@ sup.cite a { text-decoration: none; font-size: .72em; color: var(--accent); font
 .cta-card h3 { margin-top: 0; font-size: 1.6rem; }
 .cta-card p { color: #dbe6ff; }
 .cta-card .go { display: inline-block; background: #fff; color: #1e3a8a; padding: 9px 16px; border-radius: 10px; font-weight: 700; }
-@media (max-width: 760px) { .cta-card { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .cta-card { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- quiz ---------- */
 .quiz-q { font-weight: 600; margin-bottom: 8px; }
@@ -269,8 +269,9 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 28px 16px
 .tube-svg .drop { fill: #94a3b8; }
 
 @media (max-width: 860px) {
-  #sugarLayout, #molLayout, #enediolLayout, .split { grid-template-columns: 1fr !important; }
+  #sugarLayout, #molLayout, #enediolLayout, .split { grid-template-columns: minmax(0, 1fr) !important; }
 }
+@media (max-width: 480px) { .mol-wrap { aspect-ratio: 1 / 1; min-height: 0; } }
 
 /* ---------- sensor generation flow chips ---------- */
 .flowchips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 12px; }
@@ -287,5 +288,5 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 28px 16px
 .gloss > div[hidden] { display: none; }
 .gloss dt { font-weight: 700; color: var(--accent); font-size: .95rem; }
 .gloss dd { margin: 2px 0 0; font-size: .88rem; color: var(--ink-2); line-height: 1.5; }
-@media (max-width: 640px) { .gloss { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .gloss { grid-template-columns: minmax(0, 1fr); } }
 @media print { .gloss-tools { display: none; } }

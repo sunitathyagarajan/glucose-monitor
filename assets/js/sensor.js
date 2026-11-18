@@ -381,7 +381,7 @@
       s += `<rect x="${X0}" y="${sy(180)}" width="${X1 - X0}" height="${sy(70) - sy(180)}" fill="#16a34a" opacity=".07"/>`;
       s += `<line class="axis" x1="${X0}" x2="${X1}" y1="${Y0}" y2="${Y0}"/><line class="axis" x1="${X0}" x2="${X0}" y1="${Y0}" y2="${Y1}"/>`;
       s += `<text x="${(X0 + X1) / 2}" y="${Y0 + 34}" text-anchor="middle">time (min)</text><text transform="translate(13,${(Y0 + Y1) / 2}) rotate(-90)" text-anchor="middle">glucose (mg/dL)</text>`;
-      s += `<text x="${sx(30)}" y="${Y0 - 6}" text-anchor="middle" class="t3">▲ meal</text><text x="${sx(150)}" y="${Y0 - 6}" text-anchor="middle" class="t3">▲ exercise</text>`;
+      s += `<text x="${sx(30)}" y="${Y0 + 16}" text-anchor="middle" class="t3">▲ meal</text><text x="${sx(150)}" y="${Y0 + 16}" text-anchor="middle" class="t3">▲ exercise</text>`;
       let d = ""; for (let t = 0; t <= TMAX; t += 1) d += (t ? "L" : "M") + sx(t).toFixed(1) + "," + sy(blood(t)).toFixed(1);
       s += `<path d="${d}" fill="none" stroke="#dc2626" stroke-width="3"/>`;
       let d2 = ""; S.forEach(([t, g], i) => { if (i % 4 === 0) d2 += (d2 ? "L" : "M") + sx(t).toFixed(1) + "," + sy(g).toFixed(1); });

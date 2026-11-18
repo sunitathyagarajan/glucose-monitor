@@ -173,7 +173,7 @@
     });
     nodes.forEach((n, i) => {
       const y = yOf(i);
-      if (n.hl) s += `<rect x="${cx - 52}" y="${y - 16}" width="104" height="30" rx="8" style="fill:color-mix(in srgb, var(--warn) 18%, transparent);stroke:var(--warn)" stroke-width="1.2"/>`;
+      if (n.hl) s += `<rect x="${cx - 60}" y="${y - 16}" width="120" height="30" rx="8" style="fill:color-mix(in srgb, var(--warn) 18%, transparent);stroke:var(--warn)" stroke-width="1.2"/>`;
       s += `<text x="22" y="${y + 4}" font-size="10.5" style="fill:var(--ink-3)">C${n.n}</text>`;
       if (n.g) s += `<text x="${cx}" y="${y + 5}" text-anchor="middle" font-size="15" font-weight="600">${n.g}</text>`;
       else {
@@ -225,17 +225,19 @@
     let starch = "";
     const pts = []; for (let i = 0; i < 9; i++) pts.push([30 + i * 45, 130 + 22 * Math.sin(i * 0.8)]);
     pts.forEach((p, i) => { if (i) starch += `<line x1="${pts[i - 1][0]}" y1="${pts[i - 1][1]}" x2="${p[0]}" y2="${p[1]}" style="stroke:var(--ink-3)" stroke-width="2"/>`; });
-    starch += `<line x1="${pts[3][0]}" y1="${pts[3][1]}" x2="${pts[3][0] + 10}" y2="${pts[3][1] - 55}" style="stroke:var(--ink-3)" stroke-width="2"/>`;
-    starch += `<line x1="${pts[3][0] + 10}" y1="${pts[3][1] - 55}" x2="${pts[3][0] + 55}" y2="${pts[3][1] - 70}" style="stroke:var(--ink-3)" stroke-width="2"/>`;
-    const extra = [[pts[3][0] + 10, pts[3][1] - 55], [pts[3][0] + 55, pts[3][1] - 70]];
+    // α1→6 branch: a vertical link from C6 (top) of chain unit 3 up to a side chain that runs parallel to the main chain
+    const bx = pts[3][0], by = 74;
+    const extra = [[bx, by], [bx - 45, by], [bx - 90, by]];
+    starch += `<line x1="${bx}" y1="${pts[3][1]}" x2="${bx}" y2="${by}" style="stroke:var(--ink-3)" stroke-width="2"/>`;
+    starch += `<line x1="${bx}" y1="${by}" x2="${bx - 90}" y2="${by}" style="stroke:var(--ink-3)" stroke-width="2"/>`;
     [...pts, ...extra].forEach(p => { starch += `<polygon points="${poly(p[0], p[1], 14, 6, 0)}" style="fill:color-mix(in srgb, var(--glc) 22%, var(--surface));stroke:var(--glc)" stroke-width="2"/>`; });
     starch += `<circle cx="${(pts[5][0] + pts[6][0]) / 2}" cy="${(pts[5][1] + pts[6][1]) / 2}" r="44" fill="none" style="stroke:var(--warn)" stroke-width="3"/><line x1="${(pts[5][0] + pts[6][0]) / 2 + 31}" y1="${(pts[5][1] + pts[6][1]) / 2 + 31}" x2="${(pts[5][0] + pts[6][0]) / 2 + 52}" y2="${(pts[5][1] + pts[6][1]) / 2 + 52}" style="stroke:var(--warn)" stroke-width="6" stroke-linecap="round"/>`;
-    starch += `<text x="210" y="24" text-anchor="middle" font-weight="700">Starch (amylopectin)</text><text x="${pts[3][0] + 40}" y="${pts[3][1] - 34}" font-size="10" style="fill:var(--ink-3)">α1→6 branch</text>`;
+    starch += `<text x="210" y="24" text-anchor="middle" font-weight="700">Starch (amylopectin)</text><text x="${bx - 8}" y="${(by + pts[3][1]) / 2 + 4}" text-anchor="end" font-size="11.5" font-weight="600" style="fill:var(--ink-2)">α1→6 branch</text>`;
     let malt = `<text x="210" y="24" text-anchor="middle" font-weight="700">Maltose</text>`;
     malt += `<polygon points="${poly(140, 120, 46, 6, 0)}" style="fill:color-mix(in srgb, var(--glc) 18%, var(--surface));stroke:var(--glc)" stroke-width="3"/>`;
     malt += `<polygon points="${poly(290, 120, 46, 6, 0)}" style="fill:color-mix(in srgb, var(--glc) 18%, var(--surface));stroke:var(--glc)" stroke-width="3"/>`;
     malt += `<line x1="186" y1="120" x2="203" y2="120" class="ln" stroke-width="3"/><line x1="227" y1="120" x2="244" y2="120" class="ln" stroke-width="3"/><text x="215" y="126" text-anchor="middle" font-weight="700" style="fill:#e11d48">O</text>`;
-    malt += `<text x="215" y="102" text-anchor="middle" font-size="12" style="fill:var(--ink-3)">α1→4</text><circle cx="336" cy="120" r="6" style="fill:var(--bad)"/><text x="336" y="196" text-anchor="middle" font-size="11" style="fill:var(--bad)">free C1 → reducing</text>`;
+    malt += `<text x="215" y="102" text-anchor="middle" font-size="12" font-weight="600" style="fill:var(--ink-2)">α1→4</text><circle cx="336" cy="120" r="6" style="fill:var(--bad)"/><text x="336" y="196" text-anchor="middle" font-size="11" style="fill:var(--bad)">free C1 → reducing</text>`;
     malt += `<text x="140" y="125" text-anchor="middle" style="fill:var(--glc)" font-weight="700">Glc</text><text x="290" y="125" text-anchor="middle" style="fill:var(--glc)" font-weight="700">Glc</text>`;
     const glc = `<text x="210" y="24" text-anchor="middle" font-weight="700">α-D-Glucose</text>` + haworth("a", { wrapG: "translate(90,22)" });
     svg.innerHTML = `<g class="zs" data-z="0">${starch}</g><g class="zs" data-z="1">${malt}</g><g class="zs" data-z="2">${glc}</g>`;

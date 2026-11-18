@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glucose: From sugar chemistry to smart sensors</title>
 <meta name="description" content="A teaching module on sugars, the structure of glucose, classical tests for glucose, and the evolution of glucose sensors.">
-<link rel="stylesheet" href="assets/css/style.css?v=2">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body>
 
@@ -73,8 +73,9 @@
   </div>
 
   <div class="card" style="margin-top:20px">
-    <svg class="diagram" viewBox="0 0 660 215" style="max-width:820px;margin:0 auto" role="img" aria-label="Reducing sugar ring opens to an aldehyde; in sucrose both anomeric carbons are locked">
-      <text x="160" y="20" text-anchor="middle" font-weight="700" font-size="15">Reducing sugar (e.g. glucose)</text>
+    <svg class="diagram" viewBox="0 0 680 240" style="max-width:820px;margin:0 auto" role="img" aria-label="Reducing sugar ring opens to an aldehyde; in sucrose both anomeric carbons are locked">
+      <g transform="translate(2,0)">
+      <text x="168" y="20" text-anchor="middle" font-weight="700" font-size="15">Reducing sugar (e.g. glucose)</text>
       <polygon class="ln" stroke-width="2.5" points="118,115 99,82 61,82 42,115 61,148 99,148"/>
       <circle cx="99" cy="82" r="10" fill="var(--surface)"/><text x="99" y="87" text-anchor="middle" font-weight="700" fill="#e11d48" style="fill:#e11d48">O</text>
       <circle cx="118" cy="115" r="5" fill="var(--good)" style="fill:var(--good)"/>
@@ -85,13 +86,16 @@
       <text x="252" y="88" text-anchor="middle" font-weight="700" font-size="15" style="fill:#e11d48">O</text>
       <line x1="248" y1="94" x2="248" y2="108" class="ln" stroke-width="2"/><line x1="256" y1="94" x2="256" y2="108" class="ln" stroke-width="2"/>
       <text x="252" y="126" text-anchor="middle" font-size="15" font-weight="600">R — C — H</text>
-      <text x="252" y="150" text-anchor="middle" font-size="12" class="t2">open-chain aldehyde (–CHO)</text>
-      <rect x="40" y="188" width="240" height="22" rx="6" fill="var(--surface-2)" style="fill:var(--surface-2)"/>
-      <text x="160" y="203" text-anchor="middle" font-size="12">–CHO reduces Cu²⁺ (blue) → Cu₂O (brick red)</text>
+      <text x="252" y="148" text-anchor="middle" font-size="12" class="t2">open-chain</text><text x="252" y="163" text-anchor="middle" font-size="12" class="t2">aldehyde (–CHO)</text>
+      <rect x="73" y="192" width="190" height="42" rx="8" fill="var(--surface-2)" style="fill:var(--surface-2)"/>
+      <text x="168" y="209" text-anchor="middle" font-size="12">–CHO reduces Cu²⁺ (blue)</text>
+      <text x="168" y="226" text-anchor="middle" font-size="12">→ Cu₂O (brick red)</text>
+      </g>
 
-      <line x1="330" y1="10" x2="330" y2="205" stroke="var(--line)" style="stroke:var(--line)" stroke-dasharray="4 4"/>
+      <line x1="340" y1="10" x2="340" y2="232" stroke="var(--line)" style="stroke:var(--line)" stroke-dasharray="4 4"/>
 
-      <text x="495" y="20" text-anchor="middle" font-weight="700" font-size="15">Non-reducing sugar (sucrose)</text>
+      <g transform="translate(30,0)">
+      <text x="480" y="20" text-anchor="middle" font-weight="700" font-size="15">Non-reducing sugar (sucrose)</text>
       <polygon points="444,110 427,80.6 393,80.6 376,110 393,139.4 427,139.4" fill="none" stroke="var(--glc)" style="stroke:var(--glc)" stroke-width="2.5"/>
       <circle cx="427" cy="80.6" r="9" fill="var(--surface)" style="fill:var(--surface)"/><text x="427" y="85" text-anchor="middle" font-size="12" font-weight="700" style="fill:#e11d48">O</text>
       <text x="410" y="114" text-anchor="middle" font-size="12" style="fill:var(--glc)" font-weight="700">Glc</text>
@@ -105,8 +109,10 @@
       <text x="515" y="160" text-anchor="middle" font-size="11.5" style="fill:var(--bad)">Fru C2</text>
       <text x="480" y="50" text-anchor="middle" font-size="11.5" font-weight="600" style="fill:var(--bad)">locked: no ring opening</text>
       <g transform="translate(469,58)" style="fill:var(--bad)"><rect x="0" y="9" width="22" height="16" rx="3"/><path d="M5 9 V5 a6 6 0 0 1 12 0 V9" fill="none" stroke="var(--bad)" style="stroke:var(--bad)" stroke-width="2.6"/></g>
-      <text x="480" y="182" text-anchor="middle" font-size="12" class="t2">α1↔β2 bond uses <tspan font-weight="700">both</tspan> anomeric carbons</text>
-      <text x="480" y="202" text-anchor="middle" font-size="12" class="t2">→ ring cannot open → no free –CHO</text>
+      <rect x="350" y="192" width="260" height="42" rx="8" fill="var(--surface-2)" style="fill:var(--surface-2)"/>
+      <text x="480" y="209" text-anchor="middle" font-size="12">α1↔β2 bond uses <tspan font-weight="700">both</tspan> anomeric carbons</text>
+      <text x="480" y="226" text-anchor="middle" font-size="12">→ ring cannot open → no free –CHO</text>
+      </g>
     </svg>
   </div>
 
@@ -283,30 +289,30 @@
     </div>
     <div class="card">
       <h4>A systematic identification scheme</h4>
-      <svg class="diagram" viewBox="0 0 440 330" role="img" aria-label="Flowchart for identifying an unknown sugar">
+      <svg class="diagram" viewBox="0 0 470 330" role="img" aria-label="Flowchart for identifying an unknown sugar">
         <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink-3)"/></marker></defs>
         <g font-size="12">
           <rect x="150" y="6" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="26" text-anchor="middle" font-weight="700">Molisch</text>
           <line x1="220" y1="36" x2="220" y2="58" class="ln2" marker-end="url(#ah)"/><text x="228" y="52" class="t3" font-size="10.5">+ carbohydrate</text>
           <rect x="150" y="60" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="80" text-anchor="middle" font-weight="700">Iodine</text>
-          <line x1="290" y1="75" x2="345" y2="75" class="ln2" marker-end="url(#ah)"/><text x="300" y="69" class="t3" font-size="10.5">blue-black</text>
-          <rect x="348" y="60" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="391" y="80" text-anchor="middle" font-weight="600">Starch</text>
+          <line x1="290" y1="75" x2="375" y2="75" class="ln2" marker-end="url(#ah)"/><text x="332" y="69" text-anchor="middle" class="t3" font-size="10.5">blue-black</text>
+          <rect x="378" y="60" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="421" y="80" text-anchor="middle" font-weight="600">Starch</text>
           <line x1="220" y1="90" x2="220" y2="112" class="ln2" marker-end="url(#ah)"/><text x="228" y="106" class="t3" font-size="10.5">no change</text>
           <rect x="150" y="114" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="134" text-anchor="middle" font-weight="700">Benedict</text>
-          <line x1="290" y1="129" x2="345" y2="129" class="ln2" marker-end="url(#ah)"/><text x="300" y="123" class="t3" font-size="10.5">stays blue</text>
-          <rect x="348" y="114" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="391" y="134" text-anchor="middle" font-weight="600">Sucrose</text>
+          <line x1="290" y1="129" x2="375" y2="129" class="ln2" marker-end="url(#ah)"/><text x="332" y="123" text-anchor="middle" class="t3" font-size="10.5">stays blue</text>
+          <rect x="378" y="114" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="421" y="134" text-anchor="middle" font-weight="600">Sucrose</text>
           <line x1="220" y1="144" x2="220" y2="166" class="ln2" marker-end="url(#ah)"/><text x="228" y="160" class="t3" font-size="10.5">brick red (reducing)</text>
           <rect x="150" y="168" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="188" text-anchor="middle" font-weight="700">Barfoed (2 min)</text>
-          <line x1="150" y1="183" x2="102" y2="183" class="ln2" marker-end="url(#ah)"/><text x="104" y="176" class="t3" font-size="10.5">no ppt</text>
+          <line x1="150" y1="183" x2="102" y2="183" class="ln2" marker-end="url(#ah)"/><text x="126" y="176" text-anchor="middle" class="t3" font-size="10.5">no ppt</text>
           <rect x="6" y="168" width="94" height="44" rx="8" style="fill:var(--surface-2)"/><text x="53" y="187" text-anchor="middle" font-weight="600">Lactose /</text><text x="53" y="203" text-anchor="middle" font-weight="600">Maltose</text>
           <line x1="220" y1="198" x2="220" y2="220" class="ln2" marker-end="url(#ah)"/><text x="228" y="214" class="t3" font-size="10.5">red ppt (monosaccharide)</text>
           <rect x="150" y="222" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="242" text-anchor="middle" font-weight="700">Seliwanoff</text>
-          <line x1="290" y1="237" x2="345" y2="237" class="ln2" marker-end="url(#ah)"/><text x="296" y="231" class="t3" font-size="10.5">cherry red</text>
-          <rect x="348" y="222" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="391" y="242" text-anchor="middle" font-weight="600">Fructose</text>
+          <line x1="290" y1="237" x2="375" y2="237" class="ln2" marker-end="url(#ah)"/><text x="332" y="231" text-anchor="middle" class="t3" font-size="10.5">cherry red</text>
+          <rect x="378" y="222" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="421" y="242" text-anchor="middle" font-weight="600">Fructose</text>
           <line x1="220" y1="252" x2="220" y2="274" class="ln2" marker-end="url(#ah)"/><text x="228" y="268" class="t3" font-size="10.5">no quick colour</text>
           <rect x="150" y="276" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="296" text-anchor="middle" font-weight="700">GOD-POD</text>
-          <line x1="290" y1="291" x2="345" y2="291" class="ln2" marker-end="url(#ah)"/><text x="300" y="285" class="t3" font-size="10.5">pink-red</text>
-          <rect x="348" y="276" width="86" height="30" rx="8" style="fill:color-mix(in srgb, var(--good) 18%, var(--surface));stroke:var(--good)"/><text x="391" y="296" text-anchor="middle" font-weight="700">Glucose</text>
+          <line x1="290" y1="291" x2="375" y2="291" class="ln2" marker-end="url(#ah)"/><text x="332" y="285" text-anchor="middle" class="t3" font-size="10.5">pink-red</text>
+          <rect x="378" y="276" width="86" height="30" rx="8" style="fill:color-mix(in srgb, var(--good) 18%, var(--surface));stroke:var(--good)"/><text x="421" y="296" text-anchor="middle" font-weight="700">Glucose</text>
         </g>
         <text x="6" y="322" font-size="10.5" class="t3">Lactose vs maltose: osazone crystal shape or enzyme tests.</text>
       </svg>
@@ -472,6 +478,6 @@
 
 <script src="assets/js/common.js?v=2"></script>
 <script src="assets/js/molviewer.js?v=2"></script>
-<script src="assets/js/main.js?v=2"></script>
+<script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
