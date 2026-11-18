@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inside a Glucose Sensor</title>
+<meta name="description" content="Components, chemistry and signal processing of a modern continuous glucose monitor (CGM), with interactive simulations.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="dot">C₆</span> Glucose &amp; Sensors</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="index.html">← Main module</a>
+      <a href="#overview">Overview</a>
+      <a href="#anatomy">Components</a>
+      <a href="#electrode">Electrode</a>
+      <a href="#chemistry">Chemistry</a>
+      <a href="#signal">Signal</a>
+      <a href="#lag">Blood vs ISF</a>
+      <a href="#accuracy">Accuracy</a>
+      <a href="#types">Sensor types</a>
+      <a href="#references">References</a>
+    </nav>
+    <button class="theme-btn" type="button">☾ Dark</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Inside a modern glucose sensor</h1>
+  <p class="lede">A continuous glucose monitor (CGM) is an enzyme electrode on a flexible filament only a few hairs wide, worn under the skin for up to two weeks. It turns glucose molecules into electrons — and electrons into a number on your phone.</p>
+  <div class="readout" style="justify-content:center">
+    <div class="r"><span>Reading every</span><b>1–5 min</b></div>
+    <div class="r"><span>Wear time</span><b>10–15 days</b></div>
+    <div class="r"><span>Depth under skin</span><b>≈ 5 mm</b></div>
+    <div class="r"><span>Raw signal</span><b>nanoamps</b></div>
+    <div class="r"><span>Typical MARD</span><b>≈ 8–10%</b></div>
+  </div>
+</div>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="module" id="overview">
+  <div class="section-head"><span class="section-num">01</span><h2>From glucose to a number</h2></div>
+  <p class="section-intro">Glucose leaves capillaries into the <b>interstitial fluid (ISF)</b> that bathes cells. The sensor measures it there, not in blood. Click a stage to jump to it.<sup class="cite"><a href="#ref-1">1</a>,<a href="#ref-15">15</a></sup></p>
+  <div class="card">
+    <svg class="diagram" id="flowSvg" viewBox="0 0 1000 170" role="img" aria-label="Signal chain from blood glucose to phone"></svg>
+  </div>
+</section>
+
+<!-- ============ ANATOMY ============ -->
+<section class="module" id="anatomy">
+  <div class="section-head"><span class="section-num">02</span><h2>Components of a CGM</h2></div>
+  <p class="section-intro">A cross-section through a typical on-body sensor (schematic, not to scale). Click any labelled part.</p>
+  <div class="grid split" style="grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); align-items:start">
+    <div class="card" style="padding:12px"><svg class="diagram" id="anatomySvg" viewBox="0 0 800 470" role="img" aria-label="Cross-section of a CGM on the skin"></svg></div>
+    <div class="card info-panel" id="anatomyInfo"></div>
+  </div>
+  <p class="small muted" style="margin-top:10px">Insertion: a spring-loaded applicator pushes a hollow needle carrying the filament into the skin, then retracts the needle, leaving only the soft filament behind. Modern devices combine sensor, electronics and battery in one disposable unit.<sup class="cite"><a href="#ref-3">3</a>,<a href="#ref-19">19</a></sup></p>
+</section>
+
+<!-- ============ ELECTRODE ============ -->
+<section class="module" id="electrode">
+  <div class="section-head"><span class="section-num">03</span><h2>The electrode and its membranes</h2></div>
+  <p class="section-intro">The sensing tip is an electrochemical cell. A <b>potentiostat</b> holds the working electrode at a fixed voltage and measures the tiny current that flows when glucose-derived molecules are oxidised.<sup class="cite"><a href="#ref-20">20</a></sup></p>
+
+  <div class="grid split" style="grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items:start">
+    <div class="card">
+      <h4>Three-electrode cell</h4>
+      <svg class="diagram" id="cellSvg" viewBox="0 0 440 290" role="img" aria-label="Potentiostat with working, reference and counter electrodes"></svg>
+    </div>
+    <div class="card">
+      <h4>Electrode roles</h4>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Electrode</th><th>Material</th><th>Job</th></tr></thead>
+        <tbody>
+          <tr><td><b style="color:#ca8a04">Working (WE)</b></td><td>Pt or Pt–Ir (oxygen-based); carbon/gold (mediated)</td><td>Site of the sensing reaction; coated with enzyme and membranes</td></tr>
+          <tr><td><b>Reference (RE)</b></td><td>Ag/AgCl</td><td>Fixed, known potential; carries no current</td></tr>
+          <tr><td><b>Counter (CE)</b></td><td>Pt, carbon or Ag/AgCl</td><td>Completes the circuit; carries the current</td></tr>
+        </tbody>
+      </table></div>
+      <div class="key-idea"><b>Amperometry:</b> the potential is fixed; the measured current <i>i</i> is proportional to the rate of the electrode reaction, which is proportional to glucose: <span class="mono">i = S·[glucose] + i₀</span> (S = sensitivity, i₀ = background).</div>
+      <p class="small muted">Many commercial CGMs use a two-electrode design in which Ag/AgCl serves as both reference and counter.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+    </div>
+  </div>
+
+  <h3>Interactive: what the membranes do</h3>
+  <p class="small muted">Particles move from tissue fluid (left) to the platinum electrode (right). Click a layer for details. Try switching layers off.</p>
+  <div class="card">
+    <div class="btn-row" style="align-items:center; margin-bottom:10px">
+      <label class="ctl" style="min-width:220px">Glucose in ISF: <span class="mono" id="memGlcVal">120 mg/dL</span><input type="range" id="memGlc" min="40" max="400" step="10" value="120"></label>
+      <label class="toggle"><input type="checkbox" id="memGLM" checked> Glucose-limiting membrane</label>
+      <label class="toggle"><input type="checkbox" id="memIRL" checked> Interference-rejection layer</label>
+      <label class="toggle"><input type="checkbox" id="memAPAP"> Paracetamol (acetaminophen) taken</label>
+    </div>
+    <div style="position:relative; border-radius:12px; overflow:hidden; background:var(--surface-2)">
+      <canvas id="memCanvas" style="width:100%; display:block; aspect-ratio: 640/300; cursor:pointer" aria-label="Animated membrane layers"></canvas>
+    </div>
+    <div class="legend" style="margin-top:10px">
+      <span><i style="background:#f59e0b"></i>glucose</span><span><i style="background:#ef4444"></i>O₂</span><span><i style="background:#06b6d4"></i>H₂O₂</span><span><i style="background:#a855f7"></i>interferent (paracetamol, ascorbate, urate)</span><span><i style="background:#9ca3af"></i>gluconolactone</span><span><i style="background:#16a34a"></i>GOx enzyme</span>
+    </div>
+    <div class="grid g2" style="margin-top:12px">
+      <div class="readout" id="memReadout"></div>
+      <div class="info-panel" id="memInfo" style="min-height:90px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHEMISTRY ============ -->
+<section class="module" id="chemistry">
+  <div class="section-head"><span class="section-num">04</span><h2>The chemistry at the electrode</h2></div>
+  <p class="section-intro">The recognition element is <b>glucose oxidase (GOx)</b>, a flavoenzyme (from the mould <i>Aspergillus niger</i>) that is highly selective for β-D-glucose, robust and cheap.<sup class="cite"><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup> Its cofactor FAD shuttles two electrons per glucose.</p>
+  <div class="grid split" style="grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); align-items:start">
+    <div class="card">
+      <div class="btn-row" style="justify-content:space-between; align-items:center; margin-bottom:8px">
+        <div class="seg" id="cycMode"><button class="on" data-m="o2">O₂ / H₂O₂ (1st gen)</button><button data-m="med">Mediator (“wired”)</button></div>
+        <div class="btn-row"><button class="btn" id="cycPrev" type="button">←</button><button class="btn primary" id="cycNext" type="button">Next step →</button></div>
+      </div>
+      <svg class="diagram" id="cycSvg" viewBox="0 0 580 320" role="img" aria-label="Glucose oxidase catalytic cycle"></svg>
+    </div>
+    <div class="card">
+      <div id="cycText"></div>
+      <div id="cycEq"></div>
+    </div>
+  </div>
+
+  <div class="grid g3" style="margin-top:20px">
+    <div class="card flat"><h4>Why the voltage matters</h4><p class="small">Oxidising H₂O₂ on Pt needs ≈ +0.6 V vs Ag/AgCl. At that potential paracetamol, ascorbate and urate are oxidised too — hence the interference-rejection layer. Mediated sensors work near 0 V and largely avoid this.<sup class="cite"><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup></p></div>
+    <div class="card flat"><h4>The oxygen deficit</h4><p class="small">ISF contains roughly 50–100× more glucose than dissolved O₂. Without a barrier, O₂ runs out first and the signal stops rising. A glucose-limiting membrane lets O₂ through far more easily than glucose.<sup class="cite"><a href="#ref-21">21</a>,<a href="#ref-2">2</a></sup></p></div>
+    <div class="card flat"><h4>Two electrons per glucose</h4><p class="small">Each glucose that reacts yields one H₂O₂ and therefore 2 e⁻. A current of 1 nA corresponds to ≈ 3 × 10⁹ glucose molecules per second (1 nA ÷ (2 × 1.6 × 10⁻¹⁹ C)).</p></div>
+  </div>
+</section>
+
+<!-- ============ SIGNAL ============ -->
+<section class="module" id="signal">
+  <div class="section-head"><span class="section-num">05</span><h2>From current to glucose</h2></div>
+  <p class="section-intro">The enzyme follows saturating (Michaelis–Menten-like) kinetics and needs O₂. The outer membrane converts this curved response into a nearly straight line, so one sensitivity value can convert nA to mg/dL.<sup class="cite"><a href="#ref-2">2</a>,<a href="#ref-9">9</a></sup></p>
+  <div class="grid split" style="grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); align-items:start">
+    <div class="card"><svg class="chart" id="sigChart" viewBox="0 0 560 320" role="img" aria-label="Sensor signal vs glucose concentration"></svg></div>
+    <div class="card">
+      <label class="ctl">True glucose: <span class="mono" id="sigGVal">180 mg/dL</span><input type="range" id="sigG" min="20" max="400" step="5" value="180"></label>
+      <label class="ctl" style="margin-top:10px">Tissue O₂ (% of normal): <span class="mono" id="sigOVal">100%</span><input type="range" id="sigO" min="20" max="100" step="5" value="100"></label>
+      <div class="seg" id="sigMode" style="margin-top:12px"><button class="on" data-m="mem">With outer membrane</button><button data-m="bare">Bare enzyme</button></div>
+      <div class="readout" id="sigReadout" style="margin-top:12px"></div>
+      <p class="small muted" style="margin-top:10px">Sensor calibrated at 100 mg/dL and normal O₂. Lower O₂ mimics pressure on the sensor (e.g. lying on it at night) → a false “compression low”. Model is illustrative.</p>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card flat">
+      <h4>Calibration</h4>
+      <div class="eq">glucose = (i − i₀) / S</div>
+      <p class="small">Older CGMs needed fingerstick readings twice a day to estimate S and i₀. Tight control of membrane thickness and enzyme loading in manufacturing now allows <b>factory calibration</b> — no fingersticks.<sup class="cite"><a href="#ref-9">9</a></sup></p>
+    </div>
+    <div class="card flat">
+      <h4>Algorithms</h4>
+      <p class="small">On-board software filters noise, compensates for sensor drift and the ISF lag, flags faults, computes a <b>trend arrow</b> from the rate of change, and predicts lows before they happen.<sup class="cite"><a href="#ref-16">16</a></sup></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAG ============ -->
+<section class="module" id="lag">
+  <div class="section-head"><span class="section-num">06</span><h2>Blood vs interstitial fluid</h2></div>
+  <p class="section-intro">Glucose must diffuse from capillaries into ISF, so ISF glucose trails blood glucose by about 5–10 minutes — most noticeable when glucose changes fast (after meals, exercise or insulin).<sup class="cite"><a href="#ref-10">10</a></sup></p>
+  <div class="grid split" style="grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); align-items:start">
+    <div class="card"><svg class="chart" id="lagChart" viewBox="0 0 560 300" role="img" aria-label="Blood and interstitial glucose after a meal"></svg></div>
+    <div class="card">
+      <div class="eq" style="font-size:.95rem">dG<sub>ISF</sub>/dt = (G<sub>blood</sub> − G<sub>ISF</sub>) / τ</div>
+      <label class="ctl">Time lag τ: <span class="mono" id="lagTauVal">8 min</span><input type="range" id="lagTau" min="0" max="20" step="1" value="8"></label>
+      <label class="ctl" style="margin-top:10px">Time after start: <span class="mono" id="lagTVal">60 min</span><input type="range" id="lagT" min="0" max="240" step="1" value="60"></label>
+      <div class="readout" id="lagReadout" style="margin-top:12px"></div>
+      <p class="small muted" style="margin-top:10px">Trend arrows (rate of change): → &lt;1, ↗ 1–2, ↑ 2–3, ⇈ &gt;3 mg/dL per min (and the mirror images when falling).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACCURACY ============ -->
+<section class="module" id="accuracy">
+  <div class="section-head"><span class="section-num">07</span><h2>How accurate is it?</h2></div>
+  <div class="grid g2">
+    <div class="card">
+      <h4>Interactive: calculate MARD</h4>
+      <p class="small">Mean Absolute Relative Difference compares CGM readings with laboratory reference values. Edit the CGM column.<sup class="cite"><a href="#ref-12">12</a>,<a href="#ref-13">13</a></sup></p>
+      <div class="eq" style="font-size:.95rem">MARD = (1/N) Σ |CGM − Ref| / Ref × 100%</div>
+      <div class="table-wrap"><table id="mardTable"></table></div>
+      <div class="readout" style="margin-top:10px"><div class="r"><span>MARD</span><b id="mardOut">–</b></div><div class="r" style="flex:1"><span>Interpretation</span><b id="mardTxt" style="font-size:.95rem">–</b></div></div>
+    </div>
+    <div class="card">
+      <h4>Time in range: what CGM data are used for</h4>
+      <p class="small">International consensus targets for most adults with type 1 or type 2 diabetes:<sup class="cite"><a href="#ref-11">11</a></sup></p>
+      <div style="display:flex; height:46px; border-radius:10px; overflow:hidden; font-size:.75rem; color:#fff; font-weight:700; text-align:center">
+        <div style="flex:1; background:#7f1d1d; display:grid; place-items:center">&lt;1%</div>
+        <div style="flex:3; background:#dc2626; display:grid; place-items:center">&lt;4%</div>
+        <div style="flex:70; background:#16a34a; display:grid; place-items:center">&gt;70% in range</div>
+        <div style="flex:20; background:#f59e0b; display:grid; place-items:center">&lt;25%</div>
+        <div style="flex:5; background:#b45309; display:grid; place-items:center">&lt;5%</div>
+      </div>
+      <div style="display:flex; font-size:.72rem; color:var(--ink-3); margin-top:4px">
+        <div style="flex:1">◀ below 70</div><div style="flex:1; text-align:center">70–180 mg/dL (in range)</div><div style="flex:1; text-align:right">above 180 ▶</div>
+      </div>
+      <p class="small" style="margin-top:14px">Each 5% more time in range is clinically meaningful. CGM data also feed <b>automated insulin delivery</b> (“hybrid closed-loop”) systems that adjust an insulin pump every few minutes.</p>
+      <h4 style="margin-top:16px">Known limitations</h4>
+      <ul class="small" style="padding-left:1.1em; margin:0">
+        <li><b>Warm-up</b> after insertion (30–60 min) while the tissue settles.</li>
+        <li><b>Foreign-body response:</b> proteins and cells coat the sensor (biofouling), changing sensitivity over days.<sup class="cite"><a href="#ref-17">17</a></sup></li>
+        <li><b>Interference</b> from some drugs (e.g. high-dose vitamin C, hydroxyurea, paracetamol for some models) — check device labelling.</li>
+        <li><b>Lag</b> during rapid changes; confirm symptoms with a fingerstick.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPES ============ -->
+<section class="module" id="types">
+  <div class="section-head"><span class="section-num">08</span><h2>Sensor types &amp; generations</h2></div>
+  <p class="section-intro">The core difference between sensor generations is <b>how electrons get from the enzyme to the electrode</b>.<sup class="cite"><a href="#ref-2">2</a>,<a href="#ref-3">3</a></sup></p>
+  <div class="tabs" data-tabs="gen">
+    <button data-tab="g1" class="on">1st gen · O₂</button><button data-tab="g2">2nd gen · mediator</button><button data-tab="g3">3rd gen · direct</button><button data-tab="g4">Non-enzymatic</button><button data-tab="opt">Optical (fluorescent)</button>
+  </div>
+  <div id="genPanels"></div>
+
+  <h3>Current wearable CGMs (examples)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Device</th><th>Sensing chemistry</th><th>Wear</th><th>Reading interval</th><th>Calibration</th></tr></thead>
+      <tbody>
+        <tr><td>Dexcom G7</td><td>GOx on Pt; H₂O₂ detection with layered membranes (1st-gen principle)</td><td>10 days (+12 h grace)</td><td>5 min</td><td>Factory</td></tr>
+        <tr><td>Abbott FreeStyle Libre 3</td><td>GOx “wired” to an osmium redox polymer (mediated, low potential)</td><td>14–15 days</td><td>1 min</td><td>Factory</td></tr>
+        <tr><td>Senseonics Eversense 365</td><td>Fluorescent boronic-acid hydrogel, implanted under the skin</td><td>Up to 1 year</td><td>5 min</td><td>Periodic fingerstick</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin-top:8px">Specifications summarised from manufacturer labelling and FDA records; check current versions before teaching specific numbers.<sup class="cite"><a href="#ref-18">18</a>,<a href="#ref-14">14</a></sup></p>
+
+  <h3>What’s next</h3>
+  <div class="grid g4">
+    <div class="card flat"><h4>Non-invasive</h4><p class="small muted">Near-IR, Raman or radio-frequency sensing through skin — still limited by low signal and skin variability.</p></div>
+    <div class="card flat"><h4>Microneedles</h4><p class="small muted">Painless patches of sub-millimetre needles that sample ISF just below the surface.</p></div>
+    <div class="card flat"><h4>Other fluids</h4><p class="small muted">Sweat, tears and saliva sensors; correlation with blood glucose remains the challenge.</p></div>
+    <div class="card flat"><h4>Multi-analyte &amp; closed loop</h4><p class="small muted">Glucose + ketone sensors and fully automated insulin delivery (“artificial pancreas”).</p></div>
+  </div>
+  <p class="small muted" style="margin-top:8px">Overview in Teymourian et al.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section class="module" id="references">
+  <div class="section-head"><span class="section-num">§</span><h2>References</h2></div>
+  <ol class="refs">
+    <li id="ref-1">Heller A, Feldman B. Electrochemical glucose sensors and their applications in diabetes management. <i>Chem Rev</i>. 2008;108(7):2482–2505.</li>
+    <li id="ref-2">Wang J. Electrochemical glucose biosensors. <i>Chem Rev</i>. 2008;108(2):814–825.</li>
+    <li id="ref-3">Teymourian H, Barfidokht A, Wang J. Electrochemical glucose sensors in diabetes management: an updated review (2010–2020). <i>Chem Soc Rev</i>. 2020;49(21):7671–7709.</li>
+    <li id="ref-4">Bankar SB, Bule MV, Singhal RS, Ananthanarayan L. Glucose oxidase — an overview. <i>Biotechnol Adv</i>. 2009;27(4):489–501.</li>
+    <li id="ref-5">Wilson R, Turner APF. Glucose oxidase: an ideal enzyme. <i>Biosens Bioelectron</i>. 1992;7(3):165–185.</li>
+    <li id="ref-6">Clark LC Jr, Lyons C. Electrode systems for continuous monitoring in cardiovascular surgery. <i>Ann N Y Acad Sci</i>. 1962;102:29–45.</li>
+    <li id="ref-7">Updike SJ, Hicks GP. The enzyme electrode. <i>Nature</i>. 1967;214:986–988.</li>
+    <li id="ref-8">Cass AEG, Davis G, Francis GD, et al. Ferrocene-mediated enzyme electrode for amperometric determination of glucose. <i>Anal Chem</i>. 1984;56(4):667–671.</li>
+    <li id="ref-9">Hoss U, Budiman ES. Factory-calibrated continuous glucose sensors: the science behind the technology. <i>Diabetes Technol Ther</i>. 2017;19(S2):S44–S50.</li>
+    <li id="ref-10">Rebrin K, Steil GM. Can interstitial glucose assessment replace blood glucose measurements? <i>Diabetes Technol Ther</i>. 2000;2(3):461–472.</li>
+    <li id="ref-11">Battelino T, Danne T, Bergenstal RM, et al. Clinical targets for continuous glucose monitoring data interpretation: recommendations from the International Consensus on Time in Range. <i>Diabetes Care</i>. 2019;42(8):1593–1603.</li>
+    <li id="ref-12">Garg SK, Kipnes M, Castorino K, et al. Accuracy and safety of Dexcom G7 continuous glucose monitoring in adults with diabetes. <i>Diabetes Technol Ther</i>. 2022;24(6):373–380.</li>
+    <li id="ref-13">Alva S, Brazg R, Castorino K, Kipnes M, Liljenquist DR, Liu H. Accuracy of the third generation of a 14-day continuous glucose monitoring system. <i>Diabetes Ther</i>. 2023;14(4):767–776.</li>
+    <li id="ref-14">Mortellaro M, DeHennis A. Performance characterization of an abiotic and fluorescent-based continuous glucose monitoring system in patients with type 1 diabetes. <i>Biosens Bioelectron</i>. 2014;61:227–231.</li>
+    <li id="ref-15">Didyuk O, Econom N, Guardia A, Livingston K, Klueh U. Continuous glucose monitoring devices: past, present, and future focus on the history and evolution of technological innovation. <i>J Diabetes Sci Technol</i>. 2021;15(3):676–683.</li>
+    <li id="ref-16">Facchinetti A. Continuous glucose monitoring sensors: past, present and future algorithmic challenges. <i>Sensors</i>. 2016;16(12):2093.</li>
+    <li id="ref-17">Wisniewski N, Moussy F, Reichert WM. Characterization of implantable biosensor membrane biofouling. <i>Fresenius J Anal Chem</i>. 2000;366(6–7):611–621.</li>
+    <li id="ref-18">U.S. Food and Drug Administration. Medical device databases (PMA / 510(k) / De Novo) and manufacturer labelling for Dexcom G7, FreeStyle Libre 3 and Eversense 365. <a href="https://www.accessdata.fda.gov/scripts/cdrh/devicesatfda/" target="_blank" rel="noopener">accessdata.fda.gov</a></li>
+    <li id="ref-19">Klonoff DC. Continuous glucose monitoring: roadmap for 21st century diabetes therapy. <i>Diabetes Care</i>. 2005;28(5):1231–1239.</li>
+    <li id="ref-20">Bard AJ, Faulkner LR. <i>Electrochemical Methods: Fundamentals and Applications</i>. 2nd ed. New York: Wiley; 2001.</li>
+    <li id="ref-21">Gough DA, Lucisano JY, Tse PHS. Two-dimensional enzyme electrode sensor for glucose. <i>Anal Chem</i>. 1985;57(12):2351–2357.</li>
+  </ol>
+</section>
+
+<footer>
+  <a href="index.html">← Back to the main module</a> · Simulations are simplified for teaching and are not for clinical use.
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/sensor.js"></script>
+</body>
+</html>

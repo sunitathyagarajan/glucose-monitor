@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "glucose-site",
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/private/tmp/claude-502/-Users-sunita--claude-spares-spare-UoHefb/51080730-dcdc-4b15-b64b-fc6ccddb063f/scratchpad/site", "-p", "8765"],
+      "port": 8765
+    }
+  ]
+}

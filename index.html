@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glucose &amp; Its Detection</title>
+<meta name="description" content="A teaching module on sugars, the structure of glucose, classical tests for glucose, and the evolution of glucose sensors.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="dot">C₆</span> Glucose &amp; Sensors</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#sugars">1 · Sugars</a>
+      <a href="#glucose">2 · Glucose</a>
+      <a href="#tests">3 · Classic tests</a>
+      <a href="#advances">4 · Advances</a>
+      <a href="#check">Quiz</a>
+      <a href="#references">References</a>
+      <a class="cta" href="sensor.html">Modern sensor →</a>
+    </nav>
+    <button class="theme-btn" type="button">☾ Dark</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Glucose: from sugar chemistry to smart sensors</h1>
+  <p class="lede">How chemists learned to recognise one small sugar — and how that chemistry now runs inside a sensor the size of a coin.</p>
+  <div class="chips">
+    <a class="chip" href="#sugars"><b>1</b> Sugars &amp; reducing power</a>
+    <a class="chip" href="#glucose"><b>2</b> Glucose in 3D</a>
+    <a class="chip" href="#tests"><b>3</b> Virtual test-tube lab</a>
+    <a class="chip" href="#advances"><b>4</b> Timeline of glucose testing</a>
+    <a class="chip" href="sensor.html"><b>→</b> Inside a CGM</a>
+  </div>
+</div>
+
+<!-- ======================= 1. SUGARS ======================= -->
+<section class="module" id="sugars">
+  <div class="section-head"><span class="section-num">01</span><h2>Sugars &amp; saccharides</h2></div>
+  <p class="section-intro">Carbohydrates (“saccharides”, from Greek <i>sákcharon</i>, sugar) are polyhydroxy aldehydes or ketones, with a general formula close to C<sub>n</sub>(H<sub>2</sub>O)<sub>n</sub>. They are classified by how many sugar units they contain.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+
+  <div class="grid g4">
+    <div class="card flat"><div class="sicon" data-units="G"></div><h4>Monosaccharides</h4><p class="small muted">1 unit · cannot be hydrolysed further<br>glucose, fructose, galactose, ribose</p></div>
+    <div class="card flat"><div class="sicon" data-units="G,G"></div><h4>Disaccharides</h4><p class="small muted">2 units joined by a glycosidic bond<br>maltose, lactose, sucrose</p></div>
+    <div class="card flat"><div class="sicon" data-units="Ga,G,F"></div><h4>Oligosaccharides</h4><p class="small muted">3–10 units<br>raffinose (beans)</p></div>
+    <div class="card flat"><div class="sicon" data-units="G,G,G,G,G,…"></div><h4>Polysaccharides</h4><p class="small muted">&gt;10 units (often thousands)<br>starch, glycogen, cellulose</p></div>
+  </div>
+
+  <h3>Classifying monosaccharides</h3>
+  <div class="grid g2">
+    <div>
+      <p>Two questions name any monosaccharide: <b>where is the C=O?</b> and <b>how many carbons?</b></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Triose (3 C)</th><th>Pentose (5 C)</th><th>Hexose (6 C)</th></tr></thead>
+          <tbody>
+            <tr><th>Aldose<br><span class="small muted">–CHO at C1</span></th><td>Glyceraldehyde</td><td>Ribose</td><td><b>Glucose</b>, galactose</td></tr>
+            <tr><th>Ketose<br><span class="small muted">C=O at C2</span></th><td>Dihydroxyacetone</td><td>Ribulose</td><td>Fructose</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted" style="margin-top:8px">So glucose is an <b>aldohexose</b> and fructose a <b>ketohexose</b> — same formula (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>), different carbonyl position.</p>
+    </div>
+    <div class="card tint">
+      <h4>Reducing vs non-reducing sugars</h4>
+      <div class="key-idea" style="margin-top:6px"><b>Rule:</b> a sugar is <b>reducing</b> if it has a <b>free anomeric carbon</b> (a hemiacetal). The ring can open to an aldehyde that donates electrons to Cu²⁺ or Ag⁺.<sup class="cite"><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup></div>
+      <p class="small">If <i>every</i> anomeric carbon is tied up in a glycosidic bond (an acetal), the ring is locked → <b>non-reducing</b>.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <svg class="diagram" viewBox="0 0 660 215" style="max-width:820px;margin:0 auto" role="img" aria-label="Reducing sugar ring opens to an aldehyde; in sucrose both anomeric carbons are locked">
+      <text x="160" y="20" text-anchor="middle" font-weight="700" font-size="15">Reducing sugar (e.g. glucose)</text>
+      <polygon class="ln" stroke-width="2.5" points="118,115 99,82 61,82 42,115 61,148 99,148"/>
+      <circle cx="99" cy="82" r="10" fill="var(--surface)"/><text x="99" y="87" text-anchor="middle" font-weight="700" fill="#e11d48" style="fill:#e11d48">O</text>
+      <circle cx="118" cy="115" r="5" fill="var(--good)" style="fill:var(--good)"/>
+      <line class="ln" x1="118" y1="115" x2="130" y2="138" stroke-width="2"/><text x="134" y="153" font-size="13" font-weight="600">OH</text>
+      <text x="80" y="119" text-anchor="middle" font-size="11" class="t3">ring</text>
+      <text x="80" y="178" text-anchor="middle" font-size="11.5" style="fill:var(--good)">free anomeric C1</text>
+      <text x="172" y="111" text-anchor="middle" font-size="26" class="acc" style="fill:var(--accent)">⇌</text>
+      <text x="252" y="88" text-anchor="middle" font-weight="700" font-size="15" style="fill:#e11d48">O</text>
+      <line x1="248" y1="94" x2="248" y2="108" class="ln" stroke-width="2"/><line x1="256" y1="94" x2="256" y2="108" class="ln" stroke-width="2"/>
+      <text x="252" y="126" text-anchor="middle" font-size="15" font-weight="600">R — C — H</text>
+      <text x="252" y="150" text-anchor="middle" font-size="12" class="t2">open-chain aldehyde (–CHO)</text>
+      <rect x="40" y="188" width="240" height="22" rx="6" fill="var(--surface-2)" style="fill:var(--surface-2)"/>
+      <text x="160" y="203" text-anchor="middle" font-size="12">–CHO reduces Cu²⁺ (blue) → Cu₂O (brick red)</text>
+
+      <line x1="330" y1="10" x2="330" y2="205" stroke="var(--line)" style="stroke:var(--line)" stroke-dasharray="4 4"/>
+
+      <text x="495" y="20" text-anchor="middle" font-weight="700" font-size="15">Non-reducing sugar (sucrose)</text>
+      <polygon points="444,110 427,80.6 393,80.6 376,110 393,139.4 427,139.4" fill="none" stroke="var(--glc)" style="stroke:var(--glc)" stroke-width="2.5"/>
+      <circle cx="427" cy="80.6" r="9" fill="var(--surface)" style="fill:var(--surface)"/><text x="427" y="85" text-anchor="middle" font-size="12" font-weight="700" style="fill:#e11d48">O</text>
+      <text x="410" y="114" text-anchor="middle" font-size="12" style="fill:var(--glc)" font-weight="700">Glc</text>
+      <polygon points="515,110 535.7,81.5 569.3,92.4 569.3,127.6 535.7,138.5" fill="none" stroke="var(--fru)" style="stroke:var(--fru)" stroke-width="2.5"/>
+      <circle cx="535.7" cy="81.5" r="9" fill="var(--surface)" style="fill:var(--surface)"/><text x="535.7" y="86" text-anchor="middle" font-size="12" font-weight="700" style="fill:#e11d48">O</text>
+      <text x="547" y="114" text-anchor="middle" font-size="12" style="fill:var(--fru)" font-weight="700">Fru</text>
+      <line x1="444" y1="110" x2="470" y2="110" class="ln" stroke-width="2.5"/><line x1="490" y1="110" x2="515" y2="110" class="ln" stroke-width="2.5"/>
+      <text x="480" y="115" text-anchor="middle" font-weight="700" font-size="14" style="fill:#e11d48">O</text>
+      <circle cx="444" cy="110" r="5" style="fill:var(--bad)"/><circle cx="515" cy="110" r="5" style="fill:var(--bad)"/>
+      <text x="444" y="160" text-anchor="middle" font-size="11.5" style="fill:var(--bad)">Glc C1</text>
+      <text x="515" y="160" text-anchor="middle" font-size="11.5" style="fill:var(--bad)">Fru C2</text>
+      <g transform="translate(469,58)" style="fill:var(--bad)"><rect x="0" y="9" width="22" height="16" rx="3"/><path d="M5 9 V5 a6 6 0 0 1 12 0 V9" fill="none" stroke="var(--bad)" style="stroke:var(--bad)" stroke-width="2.6"/></g>
+      <text x="480" y="182" text-anchor="middle" font-size="12" class="t2">α1↔β2 bond uses <tspan font-weight="700">both</tspan> anomeric carbons</text>
+      <text x="480" y="202" text-anchor="middle" font-size="12" class="t2">→ ring cannot open → no free –CHO</text>
+    </svg>
+  </div>
+
+  <h3>Interactive: sugar explorer</h3>
+  <p class="small muted">Filter the cards, or switch on <b>Test yourself</b> and decide whether each sugar is reducing. <span style="color:var(--bad)">●</span> marks a free anomeric carbon (reducing end).</p>
+  <div class="btn-row" style="margin-bottom:12px; align-items:center">
+    <div class="seg" id="sugarFilterSize">
+      <button class="on" data-f="all">All</button><button data-f="mono">Mono</button><button data-f="di">Di</button><button data-f="oligo">Oligo</button><button data-f="poly">Poly</button>
+    </div>
+    <div class="seg" id="sugarFilterRed">
+      <button class="on" data-f="all">Any</button><button data-f="red">Reducing</button><button data-f="non">Non-reducing</button>
+    </div>
+    <label class="toggle"><input type="checkbox" id="sugarQuiz"> Test yourself</label>
+    <span class="small muted" id="sugarScore"></span>
+  </div>
+  <div class="grid" style="grid-template-columns: minmax(0,1fr) 320px; align-items:start" id="sugarLayout">
+    <div class="sugar-grid" id="sugarGrid"></div>
+    <div class="card sugar-detail" id="sugarDetail"><p class="muted small">Click a sugar card to see its structure, linkage and why it is (or is not) reducing.</p></div>
+  </div>
+
+  <h3>Zoom in: from starch to glucose</h3>
+  <div class="card">
+    <div class="grid g2" style="align-items:center">
+      <div>
+        <svg class="diagram" id="zoomSvg" viewBox="0 0 420 220" role="img" aria-label="Zooming from starch to maltose to glucose"></svg>
+      </div>
+      <div>
+        <input type="range" min="0" max="2" step="1" value="0" id="zoomRange" aria-label="Zoom level">
+        <div style="display:flex; justify-content:space-between" class="small muted"><span>Starch</span><span>Maltose</span><span>Glucose</span></div>
+        <div id="zoomText" style="margin-top:12px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. GLUCOSE ======================= -->
+<section class="module" id="glucose">
+  <div class="section-head"><span class="section-num">02</span><h2>Glucose up close</h2></div>
+  <p class="section-intro">Glucose is the main sugar in blood and the primary fuel for the brain. Its structure explains every test and sensor in this module.<sup class="cite"><a href="#ref-2">2</a></sup></p>
+
+  <div class="readout" style="margin-bottom:20px">
+    <div class="r"><span>Formula</span><b>C₆H₁₂O₆</b></div>
+    <div class="r"><span>Molar mass</span><b>180.16 g/mol</b></div>
+    <div class="r"><span>Class</span><b>Aldohexose</b></div>
+    <div class="r"><span>Normal fasting blood</span><b>70–99 mg/dL</b></div>
+    <div class="r"><span>Unit conversion</span><b>1 mmol/L = 18 mg/dL</b></div>
+  </div>
+  <p class="small muted" style="margin-top:-8px">Fasting plasma glucose ≥126 mg/dL (7.0 mmol/L) on repeat testing indicates diabetes.<sup class="cite"><a href="#ref-4">4</a></sup></p>
+
+  <h3>Glucose in 3D</h3>
+  <div class="grid" style="grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); align-items:start" id="molLayout">
+    <div>
+      <div class="mol-wrap"><canvas id="molCanvas" aria-label="Rotatable 3D model of glucose"></canvas>
+        <div class="mol-title" id="molTitle"></div>
+        <div class="mol-hint">Drag to rotate · scroll / pinch to zoom</div>
+      </div>
+      <div class="btn-row" style="margin-top:10px">
+        <div class="seg" id="molSel">
+          <button class="on" data-m="glucose-open">Glucose (open)</button>
+          <button data-m="glucose-alpha">α-Glucose</button>
+          <button data-m="glucose-beta">β-Glucose</button>
+          <button data-m="fructose-open">Fructose (open)</button>
+          <button data-m="fructose-beta">β-Fructofuranose</button>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:10px; align-items:center">
+        <label class="toggle"><input type="checkbox" id="molAuto" checked> Auto-rotate</label>
+        <label class="toggle"><input type="checkbox" id="molH" checked> Hydrogens</label>
+        <label class="toggle"><input type="checkbox" id="molLbl" checked> Carbon numbers</label>
+        <label class="toggle"><input type="checkbox" id="molSpace"> Space-filling</label>
+        <button class="btn" id="molReset" type="button">Reset view</button>
+      </div>
+      <div class="legend" style="margin-top:10px"><span><i style="background:#969ca6"></i>Carbon</span><span><i style="background:#eb4034"></i>Oxygen</span><span><i style="background:#eef0f5;border:1px solid #bbb"></i>Hydrogen</span><span><i style="background:#facc15"></i><span id="molHlNote">Functional carbon</span></span></div>
+      <p class="small muted" style="margin-top:6px">Coordinates: PubChem computed 3D conformers.<sup class="cite"><a href="#ref-3">3</a></sup></p>
+    </div>
+    <div class="card">
+      <h4>Aldose vs ketose: glucose and fructose</h4>
+      <p class="small">Fischer projections. Horizontal bonds point toward you; each cross is a carbon. The –OH on the <b>last chiral carbon (C5) on the right</b> makes both sugars <b>D</b>-sugars.</p>
+      <div style="display:flex; gap:8px; justify-content:space-around">
+        <div class="center"><svg class="diagram" id="fischerGlc" viewBox="0 0 200 320" style="max-width:170px"></svg><div class="small"><b>D-Glucose</b><br><span class="muted">aldose: C1 = –CHO</span></div></div>
+        <div class="center"><svg class="diagram" id="fischerFru" viewBox="0 0 200 320" style="max-width:170px"></svg><div class="small"><b>D-Fructose</b><br><span class="muted">ketose: C2 = C=O</span></div></div>
+      </div>
+      <p class="small muted" style="margin-top:10px">C3–C6 are identical; only C1–C2 differ.</p>
+    </div>
+  </div>
+
+  <h3>Aldose ⇌ ketose: how glucose becomes fructose</h3>
+  <div class="card">
+    <div class="grid" style="grid-template-columns: minmax(0,2fr) minmax(0,1fr); align-items:center" id="enediolLayout">
+      <svg class="diagram" id="enediolSvg" viewBox="0 0 640 330" role="img" aria-label="Glucose to enediol to fructose"></svg>
+      <div>
+        <div class="btn-row"><button class="btn" id="enePrev" type="button">← Back</button><button class="btn primary" id="eneNext" type="button">Next step →</button></div>
+        <div id="eneText" style="margin-top:12px"></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Ring formation, anomers &amp; mutarotation</h3>
+  <div class="grid g2">
+    <div class="card">
+      <p class="small">In water, the C5–OH attacks the C1 aldehyde to form a six-membered <b>pyranose</b> ring (a hemiacetal). C1 becomes a new chiral centre — the <b>anomeric carbon</b> — giving two anomers.<sup class="cite"><a href="#ref-1">1</a></sup></p>
+      <div style="display:flex; gap:6px; justify-content:space-around; flex-wrap:wrap">
+        <div class="center"><svg class="diagram" id="haworthA" viewBox="0 0 240 180" style="max-width:220px"></svg><div class="small"><b>α-D-glucopyranose</b><br><span class="muted">C1–OH down (trans to CH₂OH)</span></div></div>
+        <div class="center"><svg class="diagram" id="haworthB" viewBox="0 0 240 180" style="max-width:220px"></svg><div class="small"><b>β-D-glucopyranose</b><br><span class="muted">C1–OH up (cis to CH₂OH)</span></div></div>
+      </div>
+      <div class="eq" style="text-align:center">α-D-glucose <span class="arrow">⇌</span> open-chain aldehyde <span class="arrow">⇌</span> β-D-glucose</div>
+      <p class="small muted">β dominates because, in the chair, all its –OH groups are equatorial (check the 3D model).</p>
+    </div>
+    <div class="card">
+      <h4>Interactive: mutarotation</h4>
+      <p class="small">Dissolve a pure anomer and watch optical rotation drift to the same equilibrium value (+52.7°).</p>
+      <div class="btn-row"><button class="btn" id="mutA" type="button">Dissolve pure α (+112°)</button><button class="btn" id="mutB" type="button">Dissolve pure β (+18.7°)</button></div>
+      <svg class="chart" id="mutChart" viewBox="0 0 420 230" style="margin-top:10px"></svg>
+      <div class="readout" id="mutReadout"></div>
+      <p class="small muted" style="margin-top:8px">At equilibrium ≈ 36% α, 64% β, &lt;1% open chain. Only the open chain reacts in reducing-sugar tests, but it is constantly regenerated.<sup class="cite"><a href="#ref-1">1</a></sup> (Rate shown is illustrative.)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. TESTS ======================= -->
+<section class="module" id="tests">
+  <div class="section-head"><span class="section-num">03</span><h2>Traditional tests for glucose</h2></div>
+  <p class="section-intro">Classical tests use three ideas: <b>reduction</b> of metal ions by the free aldehyde (Cu²⁺ → Cu⁺, Ag⁺ → Ag), <b>dehydration</b> of sugars by strong acid into coloured furfural products, and <b>enzymes</b> that react with glucose alone.</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">Virtual test-tube lab</h3>
+    <div class="lab">
+      <div>
+        <label class="ctl">Test<select id="labTest"></select></label>
+        <label class="ctl" style="margin-top:10px">Sample<select id="labSample"></select></label>
+        <div class="btn-row" style="margin-top:14px"><button class="btn primary" id="labRun" type="button">▶ Run test</button><button class="btn" id="labReset" type="button">Reset</button></div>
+        <div id="mysteryBox" class="card tint" style="margin-top:14px" hidden>
+          <h4>Identify the mystery sugar</h4>
+          <p class="small">Run any tests on it, then make your call.</p>
+          <div class="btn-row"><select id="mysteryGuess"></select><button class="btn" id="mysteryCheck" type="button">Check</button><button class="btn" id="mysteryNew" type="button">New</button></div>
+          <div class="quiz-fb" id="mysteryFb"></div>
+        </div>
+        <p class="small muted" style="margin-top:14px">Simulated outcomes for ~1–2% sugar solutions under standard conditions.</p>
+      </div>
+      <div>
+        <div class="bench" id="bench">
+          <div><svg class="tube-svg" id="tubeBlank" viewBox="0 0 92 300"></svg><div class="tube-label">Blank<br><span class="muted">reagent + water</span></div></div>
+          <div><svg class="tube-svg" id="tubeSample" viewBox="0 0 92 300"></svg><div class="tube-label" id="sampleLabel">Sample</div></div>
+        </div>
+        <div class="result-box" id="labResult"><span class="muted">Choose a test and a sample, then press <b>Run test</b>.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>The tests: principle, colours &amp; equations</h3>
+  <div class="tabs" data-tabs="test" id="testTabs"></div>
+  <div id="testPanels"></div>
+
+  <div class="grid g2" style="margin-top:24px">
+    <div class="card">
+      <h4>Interactive: Benedict’s test is semi-quantitative</h4>
+      <p class="small">More reducing sugar → more Cu₂O precipitate → colour shifts from blue to brick red. This was the basis of home urine testing (Clinitest) for decades.<sup class="cite"><a href="#ref-14">14</a></sup></p>
+      <div style="display:flex; gap:16px; align-items:center">
+        <svg class="tube-svg" id="tubeBen" viewBox="0 0 92 300" style="height:220px; width:70px; flex:none"></svg>
+        <div style="flex:1">
+          <label class="ctl">Glucose concentration: <span id="benVal" class="mono">0.0 g/dL</span><input type="range" id="benRange" min="0" max="2.5" step="0.05" value="0"></label>
+          <div class="readout" style="margin-top:10px"><div class="r"><span>Colour</span><b id="benColor" style="font-size:1rem">Blue</b></div><div class="r"><span>Grade</span><b id="benGrade">Nil</b></div></div>
+        </div>
+      </div>
+      <div class="swatch-row" style="margin-top:12px">
+        <div class="swatch"><i style="background:#3a78d6"></i>Blue<br>nil</div>
+        <div class="swatch"><i style="background:#4f9a8a"></i>Green<br>trace</div>
+        <div class="swatch"><i style="background:#7cab3c"></i>Green ppt<br>+ (0.5–1)</div>
+        <div class="swatch"><i style="background:#e3c22f"></i>Yellow<br>++ (1–1.5)</div>
+        <div class="swatch"><i style="background:#e98a2a"></i>Orange<br>+++ (1.5–2)</div>
+        <div class="swatch"><i style="background:#b5401f"></i>Brick red<br>++++ (&gt;2)</div>
+      </div>
+      <p class="small muted">Values in g/dL (%), approximate.</p>
+    </div>
+    <div class="card">
+      <h4>A systematic identification scheme</h4>
+      <svg class="diagram" viewBox="0 0 440 330" role="img" aria-label="Flowchart for identifying an unknown sugar">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink-3)"/></marker></defs>
+        <g font-size="12">
+          <rect x="150" y="6" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="26" text-anchor="middle" font-weight="700">Molisch</text>
+          <line x1="220" y1="36" x2="220" y2="58" class="ln2" marker-end="url(#ah)"/><text x="228" y="52" class="t3" font-size="10.5">+ carbohydrate</text>
+          <rect x="150" y="60" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="80" text-anchor="middle" font-weight="700">Iodine</text>
+          <line x1="290" y1="75" x2="345" y2="75" class="ln2" marker-end="url(#ah)"/><text x="300" y="69" class="t3" font-size="10.5">blue-black</text>
+          <rect x="348" y="60" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="391" y="80" text-anchor="middle" font-weight="600">Starch</text>
+          <line x1="220" y1="90" x2="220" y2="112" class="ln2" marker-end="url(#ah)"/><text x="228" y="106" class="t3" font-size="10.5">no change</text>
+          <rect x="150" y="114" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="134" text-anchor="middle" font-weight="700">Benedict</text>
+          <line x1="290" y1="129" x2="345" y2="129" class="ln2" marker-end="url(#ah)"/><text x="300" y="123" class="t3" font-size="10.5">stays blue</text>
+          <rect x="348" y="114" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="391" y="134" text-anchor="middle" font-weight="600">Sucrose</text>
+          <line x1="220" y1="144" x2="220" y2="166" class="ln2" marker-end="url(#ah)"/><text x="228" y="160" class="t3" font-size="10.5">brick red (reducing)</text>
+          <rect x="150" y="168" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="188" text-anchor="middle" font-weight="700">Barfoed (2 min)</text>
+          <line x1="150" y1="183" x2="102" y2="183" class="ln2" marker-end="url(#ah)"/><text x="104" y="176" class="t3" font-size="10.5">no ppt</text>
+          <rect x="6" y="168" width="94" height="44" rx="8" style="fill:var(--surface-2)"/><text x="53" y="187" text-anchor="middle" font-weight="600">Lactose /</text><text x="53" y="203" text-anchor="middle" font-weight="600">Maltose</text>
+          <line x1="220" y1="198" x2="220" y2="220" class="ln2" marker-end="url(#ah)"/><text x="228" y="214" class="t3" font-size="10.5">red ppt (monosaccharide)</text>
+          <rect x="150" y="222" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="242" text-anchor="middle" font-weight="700">Seliwanoff</text>
+          <line x1="290" y1="237" x2="345" y2="237" class="ln2" marker-end="url(#ah)"/><text x="296" y="231" class="t3" font-size="10.5">cherry red</text>
+          <rect x="348" y="222" width="86" height="30" rx="8" style="fill:var(--surface-2)"/><text x="391" y="242" text-anchor="middle" font-weight="600">Fructose</text>
+          <line x1="220" y1="252" x2="220" y2="274" class="ln2" marker-end="url(#ah)"/><text x="228" y="268" class="t3" font-size="10.5">no quick colour</text>
+          <rect x="150" y="276" width="140" height="30" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="220" y="296" text-anchor="middle" font-weight="700">GOD-POD</text>
+          <line x1="290" y1="291" x2="345" y2="291" class="ln2" marker-end="url(#ah)"/><text x="300" y="285" class="t3" font-size="10.5">pink-red</text>
+          <rect x="348" y="276" width="86" height="30" rx="8" style="fill:color-mix(in srgb, var(--good) 18%, var(--surface));stroke:var(--good)"/><text x="391" y="296" text-anchor="middle" font-weight="700">Glucose</text>
+        </g>
+        <text x="6" y="322" font-size="10.5" class="t3">Lactose vs maltose: osazone crystal shape or enzyme tests.</text>
+      </svg>
+    </div>
+  </div>
+
+  <h3>Summary of expected results</h3>
+  <div class="table-wrap" id="resultsMatrix"></div>
+  <p class="small muted" style="margin-top:8px">+ = positive; – = negative within the standard time. Sucrose is positive in Seliwanoff’s test because hot HCl hydrolyses it to glucose + fructose.</p>
+</section>
+
+<!-- ======================= 4. ADVANCES ======================= -->
+<section class="module" id="advances">
+  <div class="section-head"><span class="section-num">04</span><h2>Advances in glucose testing</h2></div>
+  <p class="section-intro">Over ~2,500 years glucose testing moved from tasting urine, to copper chemistry in test tubes, to enzyme strips, to electrodes that read glucose every few minutes. Click a milestone.</p>
+
+  <div class="card">
+    <div class="era-legend" id="eraLegend"></div>
+    <div class="timeline"><div class="tl-track" id="tlTrack"></div></div>
+    <div class="card tint" id="tlDetail" style="margin-top:8px"></div>
+  </div>
+
+  <h3>Then vs now</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Approach</th><th>Sample</th><th>Chemistry</th><th>Result</th><th>Readings / day</th></tr></thead>
+      <tbody>
+        <tr><td>Benedict / Clinitest (1909–1960s)</td><td>Urine</td><td>Cu²⁺ reduction</td><td>Colour, semi-quantitative; lags blood by hours</td><td>1–4</td></tr>
+        <tr><td>Enzyme strip, read by eye (1956–)</td><td>Urine, later blood</td><td>Glucose oxidase + peroxidase dye</td><td>Colour chart</td><td>1–4</td></tr>
+        <tr><td>Reflectance meter (1970–)</td><td>Blood drop</td><td>Enzyme dye read by a photometer</td><td>Number</td><td>2–6</td></tr>
+        <tr><td>Electrochemical strip meter (1987–)</td><td>~1 µL blood or less</td><td>Enzyme + mediator → current</td><td>Number in seconds</td><td>4–10</td></tr>
+        <tr><td>Continuous glucose monitor (1999–)</td><td>Interstitial fluid</td><td>Enzyme electrode under the skin</td><td>Number + trend arrow + alarms</td><td>288 (every 5 min) to 1,440 (every min)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Generations of electrochemical glucose sensors</h3>
+  <div class="grid g4">
+    <div class="card flat"><span class="label-pill pill-neutral">1st gen</span><h4 style="margin-top:8px">Oxygen + H₂O₂</h4><p class="small muted">Glucose oxidase uses O₂; the electrode detects the H₂O₂ made. Clark (1962), Updike &amp; Hicks (1967).<sup class="cite"><a href="#ref-16">16</a>,<a href="#ref-17">17</a></sup></p></div>
+    <div class="card flat"><span class="label-pill pill-neutral">2nd gen</span><h4 style="margin-top:8px">Mediators</h4><p class="small muted">An artificial electron shuttle (ferrocene, ferricyanide, osmium complexes) replaces O₂. Basis of most test strips.<sup class="cite"><a href="#ref-18">18</a></sup></p></div>
+    <div class="card flat"><span class="label-pill pill-neutral">3rd gen</span><h4 style="margin-top:8px">Direct electron transfer</h4><p class="small muted">The enzyme passes electrons straight to a (nano-structured) electrode — no mediator.<sup class="cite"><a href="#ref-21">21</a></sup></p></div>
+    <div class="card flat"><span class="label-pill pill-neutral">“4th gen”</span><h4 style="margin-top:8px">Non-enzymatic</h4><p class="small muted">Glucose is oxidised directly on metal / metal-oxide nanostructures (Pt, Au, Ni, Cu). Mostly research.<sup class="cite"><a href="#ref-22">22</a></sup></p></div>
+  </div>
+
+  <a class="cta-card" href="sensor.html" style="margin-top:28px">
+    <div>
+      <h3>Inside a modern glucose sensor →</h3>
+      <p>Explore the components of a continuous glucose monitor, the enzyme chemistry at its electrode, interactive membrane and signal simulators, and why the reading lags your blood.</p>
+      <span class="go">Open the sensor page</span>
+    </div>
+    <svg viewBox="0 0 260 170" aria-hidden="true">
+      <rect x="0" y="110" width="260" height="60" rx="4" fill="#f3c9a8" opacity=".9"/>
+      <rect x="0" y="110" width="260" height="10" fill="#e6a77c"/>
+      <ellipse cx="130" cy="96" rx="78" ry="26" fill="#e2e8f0"/>
+      <ellipse cx="130" cy="88" rx="70" ry="22" fill="#fff"/>
+      <circle cx="130" cy="88" r="9" fill="#2563c9"/>
+      <rect x="128" y="110" width="4" height="48" fill="#94a3b8"/>
+      <rect x="128" y="146" width="4" height="12" fill="#facc15"/>
+      <path d="M205 40 q14 -14 28 0 M211 46 q8 -8 16 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </a>
+</section>
+
+<!-- ======================= QUIZ ======================= -->
+<section class="module" id="check">
+  <div class="section-head"><span class="section-num">✓</span><h2>Check your understanding</h2></div>
+  <div class="grid g2" id="quiz"></div>
+</section>
+
+<!-- ======================= REFERENCES ======================= -->
+<section class="module" id="references">
+  <div class="section-head"><span class="section-num">§</span><h2>References</h2></div>
+  <ol class="refs">
+    <li id="ref-1">Nelson DL, Cox MM. <i>Lehninger Principles of Biochemistry</i>. 8th ed. New York: W.H. Freeman/Macmillan; 2021. Ch. 7, Carbohydrates and Glycobiology.</li>
+    <li id="ref-2">Berg JM, Tymoczko JL, Gatto GJ Jr, Stryer L. <i>Biochemistry</i>. 9th ed. New York: W.H. Freeman; 2019.</li>
+    <li id="ref-3">National Center for Biotechnology Information. PubChem Compound database: CIDs 107526 (aldehydo-D-glucose), 79025 (α-D-glucose), 64689 (β-D-glucose), 5984 (D-fructose), 439709 (β-D-fructofuranose); computed 3D conformers. <a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">pubchem.ncbi.nlm.nih.gov</a></li>
+    <li id="ref-4">American Diabetes Association Professional Practice Committee. 2. Diagnosis and classification of diabetes: Standards of Care in Diabetes—2024. <i>Diabetes Care</i>. 2024;47(Suppl 1):S20–S42.</li>
+    <li id="ref-5">Fehling H. Die quantitative Bestimmung von Zucker und Stärkmehl mittelst Kupfervitriol. <i>Ann Chem Pharm</i>. 1849;72(1):106–113.</li>
+    <li id="ref-6">Benedict SR. A reagent for the detection of reducing sugars. <i>J Biol Chem</i>. 1909;5(6):485–487.</li>
+    <li id="ref-7">Tollens B. Über ammon-alkalische Silberlösung als Reagens auf Aldehyd. <i>Ber Dtsch Chem Ges</i>. 1882;15(2):1635–1639.</li>
+    <li id="ref-8">Barfoed C. Über die Nachweisung des Traubenzuckers neben Dextrin und verwandten Körpern. <i>Z Anal Chem</i>. 1873;12:27–32.</li>
+    <li id="ref-9">Seliwanoff T. Notiz über eine Fruchtzuckerreaction. <i>Ber Dtsch Chem Ges</i>. 1887;20(1):181–182.</li>
+    <li id="ref-10">Molisch H. Zwei neue Zuckerreactionen. <i>Monatsh Chem</i>. 1886;7:198–209.</li>
+    <li id="ref-11">Trinder P. Determination of glucose in blood using glucose oxidase with an alternative oxygen acceptor. <i>Ann Clin Biochem</i>. 1969;6(1):24–27.</li>
+    <li id="ref-12">Free AH, Adams EC, Kercher ML, Free HM, Cook MH. Simple specific test for urine glucose. <i>Clin Chem</i>. 1957;3(3):163–168.</li>
+    <li id="ref-13">Karamanou M, Protogerou A, Tsoucalas G, Androutsos G, Poulakou-Rebelakou E. Milestones in the history of diabetes mellitus: the main contributors. <i>World J Diabetes</i>. 2016;7(1):1–7.</li>
+    <li id="ref-14">Clarke SF, Foster JR. A history of blood glucose meters and their role in self-monitoring of diabetes mellitus. <i>Br J Biomed Sci</i>. 2012;69(2):83–93.</li>
+    <li id="ref-15">Hirsch IB. Introduction: history of glucose monitoring. In: <i>Role of Continuous Glucose Monitoring in Diabetes Treatment</i>. Arlington (VA): American Diabetes Association; 2018.</li>
+    <li id="ref-16">Clark LC Jr, Lyons C. Electrode systems for continuous monitoring in cardiovascular surgery. <i>Ann N Y Acad Sci</i>. 1962;102:29–45.</li>
+    <li id="ref-17">Updike SJ, Hicks GP. The enzyme electrode. <i>Nature</i>. 1967;214:986–988.</li>
+    <li id="ref-18">Cass AEG, Davis G, Francis GD, et al. Ferrocene-mediated enzyme electrode for amperometric determination of glucose. <i>Anal Chem</i>. 1984;56(4):667–671.</li>
+    <li id="ref-19">Didyuk O, Econom N, Guardia A, Livingston K, Klueh U. Continuous glucose monitoring devices: past, present, and future focus on the history and evolution of technological innovation. <i>J Diabetes Sci Technol</i>. 2021;15(3):676–683.</li>
+    <li id="ref-20">U.S. Food and Drug Administration. FDA clears first over-the-counter continuous glucose monitor [press release]. March 5, 2024.</li>
+    <li id="ref-21">Wang J. Electrochemical glucose biosensors. <i>Chem Rev</i>. 2008;108(2):814–825.</li>
+    <li id="ref-22">Teymourian H, Barfidokht A, Wang J. Electrochemical glucose sensors in diabetes management: an updated review (2010–2020). <i>Chem Soc Rev</i>. 2020;49(21):7671–7709.</li>
+    <li id="ref-23">Yoo EH, Lee SY. Glucose biosensors: an overview of use in clinical practice. <i>Sensors</i>. 2010;10(5):4558–4576.</li>
+    <li id="ref-24">U.S. Food and Drug Administration. Medical device approval and clearance databases (PMA / 510(k) / De Novo): Dexcom G7 (2022), FreeStyle Libre 3 (2022), Dexcom Stelo (2024), Eversense 365 (2024). <a href="https://www.accessdata.fda.gov/scripts/cdrh/devicesatfda/" target="_blank" rel="noopener">accessdata.fda.gov</a></li>
+  </ol>
+</section>
+
+<footer>
+  Teaching module · Glucose &amp; glucose sensors · Continue to <a href="sensor.html">Inside a modern glucose sensor</a><br>
+  Simulations are simplified for teaching and are not for clinical use.
+</footer>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/molviewer.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
