@@ -277,3 +277,15 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 28px 16px
 .fchip { border: 2px solid var(--c); background: color-mix(in srgb, var(--c) 14%, var(--surface)); padding: 6px 12px; border-radius: 10px; font-size: .88rem; font-weight: 600; }
 .flowchips .arr { color: var(--ink-3); font-weight: 700; }
 .theme-btn { white-space: nowrap; }
+
+/* ---------- glossary ---------- */
+.gloss-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.gloss-search { font: inherit; font-size: .95rem; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: min(360px, 100%); }
+.gloss-search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.gloss { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; margin: 0; }
+.gloss > div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; break-inside: avoid; }
+.gloss > div[hidden] { display: none; }
+.gloss dt { font-weight: 700; color: var(--accent); font-size: .95rem; }
+.gloss dd { margin: 2px 0 0; font-size: .88rem; color: var(--ink-2); line-height: 1.5; }
+@media (max-width: 640px) { .gloss { grid-template-columns: 1fr; } }
+@media print { .gloss-tools { display: none; } }

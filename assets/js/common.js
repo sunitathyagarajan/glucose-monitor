@@ -30,6 +30,19 @@
     }, { rootMargin: "-40% 0px -55% 0px" });
     map.forEach((_, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
 
+    // glossary search
+    document.querySelectorAll("#glossary").forEach(sec => {
+      const input = sec.querySelector(".gloss-search"), items = [...sec.querySelectorAll(".gloss > div")];
+      const count = sec.querySelector(".gloss-count"), empty = sec.querySelector(".gloss-empty");
+      const run = () => {
+        const q = input.value.trim().toLowerCase(); let n = 0;
+        items.forEach(it => { const hit = !q || it.textContent.toLowerCase().includes(q); it.hidden = !hit; if (hit) n++; });
+        count.textContent = q ? `${n} of ${items.length} terms` : `${items.length} terms`;
+        empty.hidden = n > 0;
+      };
+      input.addEventListener("input", run); run();
+    });
+
     // generic tab groups: <div class="tabs" data-tabs="name"><button data-tab="x"> + <div class="tab-panel" data-panel="name:x">
     document.querySelectorAll(".tabs[data-tabs]").forEach(group => {
       const name = group.dataset.tabs;

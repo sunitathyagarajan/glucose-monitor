@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inside a Glucose Sensor</title>
 <meta name="description" content="Components, chemistry and signal processing of a modern continuous glucose monitor (CGM), with interactive simulations.">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
 </head>
 <body>
 
@@ -22,6 +22,7 @@
       <a href="#lag">Blood vs ISF</a>
       <a href="#accuracy">Accuracy</a>
       <a href="#types">Sensor types</a>
+      <a href="#glossary">Glossary</a>
       <a href="#references">References</a>
     </nav>
     <button class="theme-btn" type="button">☾ Dark</button>
@@ -243,6 +244,55 @@
   <p class="small muted" style="margin-top:8px">Overview in Teymourian et al.<sup class="cite"><a href="#ref-3">3</a></sup></p>
 </section>
 
+<!-- ============ GLOSSARY ============ -->
+<section class="module" id="glossary">
+  <div class="section-head"><span class="section-num">A–Z</span><h2>Glossary</h2></div>
+  <div class="gloss-tools"><input type="search" class="gloss-search" placeholder="Search terms…" aria-label="Search glossary"><span class="gloss-count small muted"></span></div>
+  <dl class="gloss">
+    <div><dt>Ag/AgCl electrode</dt><dd>Silver coated with silver chloride; gives a stable, known potential and is used as the reference (and often counter) electrode.</dd></div>
+    <div><dt>Amperometry</dt><dd>Measuring the current that flows at a fixed electrode potential. The current is proportional to the rate of the electrode reaction.</dd></div>
+    <div><dt>Analyte</dt><dd>The substance being measured — here, glucose.</dd></div>
+    <div><dt>ASIC</dt><dd>Application-specific integrated circuit: the custom chip that acts as potentiostat, digitiser and processor inside the sensor.</dd></div>
+    <div><dt>Automated insulin delivery (hybrid closed loop)</dt><dd>A system in which CGM readings automatically adjust an insulin pump every few minutes.</dd></div>
+    <div><dt>Background current (i₀)</dt><dd>Current that flows even with no glucose; subtracted during calibration.</dd></div>
+    <div><dt>Biofouling / foreign-body response</dt><dd>Proteins and cells coating an implanted sensor, which can change its sensitivity over time.</dd></div>
+    <div><dt>Bluetooth Low Energy (BLE)</dt><dd>Low-power radio standard that sends readings to a phone, receiver or pump.</dd></div>
+    <div><dt>Boronic acid</dt><dd>An R–B(OH)₂ group that binds reversibly to the cis-diols of glucose; used in fluorescent (optical) sensors such as Eversense.</dd></div>
+    <div><dt>Calibration</dt><dd>Converting current to glucose using glucose = (i − i₀)/S. Done with fingersticks in older CGMs; set at the factory in most current ones.</dd></div>
+    <div><dt>CGM (continuous glucose monitor)</dt><dd>A wearable device that measures interstitial glucose every 1–5 minutes for days to weeks.</dd></div>
+    <div><dt>Compression low</dt><dd>A falsely low reading caused by pressure on the sensor (e.g. lying on it), which reduces local blood flow and O₂.</dd></div>
+    <div><dt>Counter electrode (CE)</dt><dd>Completes the circuit by carrying the current that flows through the working electrode.</dd></div>
+    <div><dt>Direct electron transfer (DET)</dt><dd>Electrons pass from the enzyme straight to the electrode with no O₂ or mediator (“3rd-generation” sensors).</dd></div>
+    <div><dt>FAD / FADH₂</dt><dd>Flavin adenine dinucleotide: the cofactor of glucose oxidase. It accepts two electrons and two protons from glucose (FAD → FADH₂).</dd></div>
+    <div><dt>Factory calibration</dt><dd>Sensor sensitivity set during manufacturing, so no fingerstick calibration is needed.</dd></div>
+    <div><dt>Fluorescence</dt><dd>Light emitted by a molecule after it absorbs light of a shorter wavelength; its intensity reports glucose in optical sensors.</dd></div>
+    <div><dt>Glucono-δ-lactone</dt><dd>The cyclic ester produced when glucose oxidase oxidises glucose; it hydrolyses to gluconic acid.</dd></div>
+    <div><dt>Glucose-limiting membrane</dt><dd>Outer polymer layer that slows glucose but lets O₂ through, keeping O₂ in excess so the signal is linear.</dd></div>
+    <div><dt>Glucose oxidase (GOx)</dt><dd>The enzyme in most glucose sensors: β-D-glucose + O₂ → gluconolactone + H₂O₂.</dd></div>
+    <div><dt>Hydrogen peroxide (H₂O₂)</dt><dd>Product of the GOx reaction; oxidised at a platinum electrode (H₂O₂ → O₂ + 2H⁺ + 2e⁻) to give the signal.</dd></div>
+    <div><dt>iCGM</dt><dd>“Integrated CGM”: an FDA category for CGMs accurate enough to connect to insulin pumps and other devices.</dd></div>
+    <div><dt>Interference-rejection layer</dt><dd>Thin film next to the electrode that lets H₂O₂ through but blocks larger electroactive molecules.</dd></div>
+    <div><dt>Interferent</dt><dd>A substance other than glucose that is oxidised at the electrode and inflates the signal, e.g. paracetamol, ascorbate, urate.</dd></div>
+    <div><dt>Interstitial fluid (ISF)</dt><dd>The fluid surrounding cells under the skin, where CGMs measure glucose.</dd></div>
+    <div><dt>Lag time</dt><dd>The delay (≈ 5–10 min) between a change in blood glucose and the same change in interstitial glucose.</dd></div>
+    <div><dt>MARD</dt><dd>Mean absolute relative difference between CGM and reference readings; lower means more accurate.</dd></div>
+    <div><dt>Mediator</dt><dd>A redox molecule (ferrocene, ferricyanide, osmium complex) that carries electrons from the enzyme to the electrode in place of O₂.</dd></div>
+    <div><dt>Michaelis–Menten kinetics</dt><dd>Enzyme rate rises with substrate concentration and then levels off (saturates).</dd></div>
+    <div><dt>Nanoamp (nA)</dt><dd>10⁻⁹ ampere: the typical size of a CGM signal current.</dd></div>
+    <div><dt>Non-enzymatic sensor</dt><dd>Oxidises glucose directly on a metal or metal-oxide surface without an enzyme; mostly at the research stage.</dd></div>
+    <div><dt>Oxygen deficit</dt><dd>Tissue has far less O₂ than glucose, so a bare GOx electrode runs out of O₂ and its signal stops rising.</dd></div>
+    <div><dt>Potentiostat</dt><dd>Circuit that holds the working electrode at a set potential relative to the reference electrode and measures the current.</dd></div>
+    <div><dt>Reference electrode (RE)</dt><dd>Electrode with a stable, known potential against which the working electrode is controlled; it carries no current.</dd></div>
+    <div><dt>Sensitivity (S)</dt><dd>Signal per unit glucose, e.g. nA per mg/dL; the slope of the calibration line.</dd></div>
+    <div><dt>Time in range (TIR)</dt><dd>Percentage of time glucose is 70–180 mg/dL; the consensus target is above 70%.</dd></div>
+    <div><dt>Trend arrow</dt><dd>Arrow showing how fast and in which direction glucose is changing (mg/dL per minute).</dd></div>
+    <div><dt>Warm-up period</dt><dd>Time after insertion (≈ 30–60 min) before readings are reported, while the sensor and tissue stabilise.</dd></div>
+    <div><dt>Wired enzyme</dt><dd>Enzyme linked to the electrode through a redox polymer (e.g. osmium-based) that conducts electrons; used in FreeStyle Libre.</dd></div>
+    <div><dt>Working electrode (WE)</dt><dd>The electrode where the sensing reaction occurs; coated with enzyme and membranes.</dd></div>
+  </dl>
+  <p class="gloss-empty small muted" hidden>No matching terms.</p>
+</section>
+
 <!-- ============ REFERENCES ============ -->
 <section class="module" id="references">
   <div class="section-head"><span class="section-num">§</span><h2>References</h2></div>
@@ -275,7 +325,7 @@
   <a href="index.html">← Back to the main module</a> · Simulations are simplified for teaching and are not for clinical use.
 </footer>
 
-<script src="assets/js/common.js"></script>
-<script src="assets/js/sensor.js"></script>
+<script src="assets/js/common.js?v=2"></script>
+<script src="assets/js/sensor.js?v=2"></script>
 </body>
 </html>
