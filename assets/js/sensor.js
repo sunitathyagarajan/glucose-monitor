@@ -98,7 +98,7 @@
     <text x="388" y="268" text-anchor="end" font-size="11" class="t3">interstitial fluid</text>
     <rect x="110" y="10" width="220" height="74" rx="12" style="fill:var(--surface-2);stroke:#7c3aed" stroke-width="2"/>
     <text x="220" y="34" text-anchor="middle" font-weight="700" font-size="14">Potentiostat</text>
-    <text x="220" y="54" text-anchor="middle" font-size="12" class="t2">holds E(WE vs RE) = +0.6 V</text>
+    <text x="220" y="54" text-anchor="middle" font-size="12" class="t2">holds E(WE vs. RE) = +0.6 V</text>
     <text x="220" y="72" text-anchor="middle" font-size="12" class="t2">measures current i (nA)</text>
     <line x1="330" y1="47" x2="420" y2="47" style="stroke:var(--ink-3)" stroke-width="2"/><text x="425" y="44" font-size="11" class="t3" text-anchor="end">→ ADC</text>
     <line x1="140" y1="84" x2="140" y2="135" style="stroke:var(--ink)" stroke-width="2"/>
@@ -200,7 +200,7 @@
       const g = ctx.createLinearGradient(460, 0, 640, 0); g.addColorStop(0, "#d4d4d8"); g.addColorStop(.4, "#f4f4f5"); g.addColorStop(1, "#a1a1aa");
       ctx.fillStyle = g; ctx.fillRect(460, 0, 180, H);
       ctx.fillStyle = "#3f3f46"; ctx.font = "600 13px system-ui, sans-serif"; ctx.textAlign = "center";
-      ctx.fillText("Pt electrode", 550, H / 2 - 8); ctx.font = "12px system-ui, sans-serif"; ctx.fillText("+0.6 V vs Ag/AgCl", 550, H / 2 + 10);
+      ctx.fillText("Pt electrode", 550, H / 2 - 8); ctx.font = "12px system-ui, sans-serif"; ctx.fillText("+0.6 V vs. Ag/AgCl", 550, H / 2 + 10);
       ctx.fillText("→ e⁻ to potentiostat", 550, H / 2 + 28);
       // layer titles
       ctx.font = "600 10.5px system-ui, sans-serif"; ctx.fillStyle = dark ? "#cbd5e1" : "#334155";
@@ -262,7 +262,7 @@
     let mode = "o2", stepI = 0;
     const MODES = {
       o2: {
-        right: ["O₂", "H₂O₂"], elec: ["Pt electrode", "+0.6 V vs Ag/AgCl", "H₂O₂ → O₂", "+ 2H⁺ + 2e⁻"],
+        right: ["O₂", "H₂O₂"], elec: ["Pt electrode", "+0.6 V vs. Ag/AgCl", "H₂O₂ → O₂", "+ 2H⁺ + 2e⁻"],
         steps: [
           ["Overview", "Glucose oxidase cycles between an oxidised form (FAD) and a reduced form (FADH₂). Use <b>Next step</b> to walk through one turn."],
           ["1 · Glucose is oxidised", "β-D-glucose binds GOx. FAD takes 2 H (2e⁻ + 2H⁺) from C1, leaving D-glucono-δ-lactone, which hydrolyses to gluconic acid."],
@@ -319,7 +319,7 @@
     render();
   })();
 
-  /* ---------------- Signal vs glucose ---------------- */
+  /* ---------------- Signal vs. glucose ---------------- */
   (function signal() {
     const svg = $("#sigChart");
     const X0 = 56, X1 = 540, Y0 = 280, Y1 = 20, GMAX = 400, YMAX = 4.6;
@@ -359,7 +359,7 @@
     render();
   })();
 
-  /* ---------------- Blood vs ISF lag ---------------- */
+  /* ---------------- Blood vs. ISF lag ---------------- */
   (function lag() {
     const svg = $("#lagChart");
     const X0 = 50, X1 = 540, Y0 = 250, Y1 = 20, TMAX = 240, GMIN = 60, GMAX = 220;

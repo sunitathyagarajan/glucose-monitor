@@ -9,8 +9,8 @@ An interactive, self-contained web module for students on sugar chemistry, gluco
 
 | Page | Contents |
 |---|---|
-| `index.html` (main module) | 1. Sugars and saccharides: classification, reducing vs non-reducing sugars, sugar explorer and self-quiz, zoom from starch to glucose<br>2. Glucose: 3D model (open chain, α/β pyranose, fructose), Fischer projections, aldose ⇌ ketose (enediol) stepper, Haworth anomers, mutarotation simulation<br>3. Traditional tests: virtual test-tube lab (Benedict, Fehling, Tollens, Barfoed, Seliwanoff, Molisch, iodine, GOD-POD), a mystery-sugar challenge, colour keys and equations, semi-quantitative Benedict slider, identification flowchart, results matrix<br>4. Advances: an interactive timeline from c. 500 BCE to 2024, a then-vs-now table, sensor generations<br>Quiz and references |
-| `sensor.html` (standalone) | The modern continuous glucose monitor: signal chain, clickable cross-section of the device, three-electrode cell, animated membrane-layer simulation, GOx catalytic cycle (O₂ and mediator modes), signal-vs-glucose and oxygen simulator, blood-vs-ISF lag simulator, MARD calculator, time-in-range, sensor generations, device comparison, references |
+| `index.html` (main module) | 1. Sugars and saccharides: classification, reducing vs. non-reducing sugars, sugar explorer and self-quiz, zoom from starch to glucose<br>2. Glucose: 3D model (open chain, α/β pyranose, fructose), Fischer projections, aldose ⇌ ketose (enediol) stepper, Haworth anomers, mutarotation simulation<br>3. Traditional tests: virtual test-tube lab (Benedict, Fehling, Tollens, Barfoed, Seliwanoff, Molisch, iodine, GOD-POD), a mystery-sugar challenge, colour keys and equations, semi-quantitative Benedict slider, identification flowchart, results matrix<br>4. Advances: an interactive timeline from c. 500 BCE to 2024, a then vs. now table, sensor generations<br>Quiz and references |
+| `sensor.html` (standalone) | The modern continuous glucose monitor: signal chain, clickable cross-section of the device, three-electrode cell, animated membrane-layer simulation, GOx catalytic cycle (O₂ and mediator modes), signal vs. glucose and oxygen simulator, blood vs. ISF lag simulator, MARD calculator, time-in-range, sensor generations, device comparison, references |
 
 ## Using it
 
@@ -33,6 +33,6 @@ assets/js/sensor.js   sensor-page interactives
 ## Notes for instructors
 
 - 3D coordinates are PubChem computed conformers (CIDs 107526, 79025, 64689, 5984, 439709).
-- Test-tube outcomes, the membrane particle model, the current-vs-glucose model and the lag model are **simplified for teaching**. They show the right trends, but their numbers are illustrative.
+- Test-tube outcomes, the membrane particle model, the current vs. glucose model and the lag model are **simplified for teaching**. They show the right trends, but their numbers are illustrative.
 - Device specifications (wear time, intervals) change often. Check current manufacturer labelling before teaching specific numbers.
 - Each page lists its references at the bottom. Superscript citations link to them.

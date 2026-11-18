@@ -19,7 +19,7 @@
       <a href="#electrode">Electrode</a>
       <a href="#chemistry">Chemistry</a>
       <a href="#signal">Signal</a>
-      <a href="#lag">Blood vs ISF</a>
+      <a href="#lag">Blood vs. ISF</a>
       <a href="#accuracy">Accuracy</a>
       <a href="#types">Sensor types</a>
       <a href="#glossary">Glossary</a>
@@ -127,7 +127,7 @@
   </div>
 
   <div class="grid g3" style="margin-top:20px">
-    <div class="card flat"><h4>Why the voltage matters</h4><p class="small">Oxidising H₂O₂ on Pt needs ≈ +0.6 V vs Ag/AgCl. At that potential paracetamol, ascorbate and urate are oxidised too — hence the interference-rejection layer. Mediated sensors work near 0 V and largely avoid this.<sup class="cite"><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup></p></div>
+    <div class="card flat"><h4>Why the voltage matters</h4><p class="small">Oxidising H₂O₂ on Pt needs ≈ +0.6 V vs. Ag/AgCl. At that potential paracetamol, ascorbate and urate are oxidised too — hence the interference-rejection layer. Mediated sensors work near 0 V and largely avoid this.<sup class="cite"><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup></p></div>
     <div class="card flat"><h4>The oxygen deficit</h4><p class="small">ISF contains roughly 50–100× more glucose than dissolved O₂. Without a barrier, O₂ runs out first and the signal stops rising. A glucose-limiting membrane lets O₂ through far more easily than glucose.<sup class="cite"><a href="#ref-21">21</a>,<a href="#ref-2">2</a></sup></p></div>
     <div class="card flat"><h4>Two electrons per glucose</h4><p class="small">Each glucose that reacts yields one H₂O₂ and therefore 2 e⁻. A current of 1 nA corresponds to ≈ 3 × 10⁹ glucose molecules per second (1 nA ÷ (2 × 1.6 × 10⁻¹⁹ C)).</p></div>
   </div>
@@ -138,7 +138,7 @@
   <div class="section-head"><span class="section-num">05</span><h2>From current to glucose</h2></div>
   <p class="section-intro">The enzyme follows saturating (Michaelis–Menten-like) kinetics and needs O₂. The outer membrane converts this curved response into a nearly straight line, so one sensitivity value can convert nA to mg/dL.<sup class="cite"><a href="#ref-2">2</a>,<a href="#ref-9">9</a></sup></p>
   <div class="grid split" style="grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); align-items:start">
-    <div class="card"><svg class="chart" id="sigChart" viewBox="0 0 560 320" role="img" aria-label="Sensor signal vs glucose concentration"></svg></div>
+    <div class="card"><svg class="chart" id="sigChart" viewBox="0 0 560 320" role="img" aria-label="Sensor signal vs. glucose concentration"></svg></div>
     <div class="card">
       <label class="ctl">True glucose: <span class="mono" id="sigGVal">180 mg/dL</span><input type="range" id="sigG" min="20" max="400" step="5" value="180"></label>
       <label class="ctl" style="margin-top:10px">Tissue O₂ (% of normal): <span class="mono" id="sigOVal">100%</span><input type="range" id="sigO" min="20" max="100" step="5" value="100"></label>
@@ -162,7 +162,7 @@
 
 <!-- ============ LAG ============ -->
 <section class="module" id="lag">
-  <div class="section-head"><span class="section-num">06</span><h2>Blood vs interstitial fluid</h2></div>
+  <div class="section-head"><span class="section-num">06</span><h2>Blood vs. interstitial fluid</h2></div>
   <p class="section-intro">Glucose must diffuse from capillaries into ISF, so ISF glucose trails blood glucose by about 5–10 minutes — most noticeable when glucose changes fast (after meals, exercise or insulin).<sup class="cite"><a href="#ref-10">10</a></sup></p>
   <div class="grid split" style="grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); align-items:start">
     <div class="card"><svg class="chart" id="lagChart" viewBox="0 0 560 300" role="img" aria-label="Blood and interstitial glucose after a meal"></svg></div>
@@ -326,6 +326,6 @@
 </footer>
 
 <script src="assets/js/common.js?v=2"></script>
-<script src="assets/js/sensor.js?v=5"></script>
+<script src="assets/js/sensor.js?v=6"></script>
 </body>
 </html>

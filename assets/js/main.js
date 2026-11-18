@@ -367,7 +367,7 @@
       eq: [["Reagent", "Ag⁺ + 2NH₃ <span class='arrow'>→</span> [Ag(NH₃)₂]⁺"], ["Test", "R–CHO + 2[Ag(NH₃)₂]⁺ + 3OH⁻ <span class='arrow'>→</span> R–COO⁻ + <b>2Ag↓</b> + 4NH₃ + 2H₂O"]]
     },
     barfoed: {
-      name: "Barfoed’s", detects: "Monosaccharides vs disaccharides", heat: true, ref: [8],
+      name: "Barfoed’s", detects: "Monosaccharides vs. disaccharides", heat: true, ref: [8],
       reagent: { liq: "#7fb3e8" },
       run: s => s.mono ? { st: { liq: "#7fb3e8", ppt: "#a8401f", pptSize: .5 }, pos: 1, obs: "<b>Thin brick-red precipitate</b> at the bottom within 2 min." }
         : s.red ? { st: { liq: "#7fb3e8" }, pos: 0, obs: "<b>No precipitate in 2 min.</b> (A little may appear after ~10 min as the disaccharide slowly hydrolyses.)" }
@@ -379,7 +379,7 @@
       eq: [["Acidic medium", "R–CHO + 2Cu²⁺ + 2H₂O <span class='arrow'>→</span> R–COOH + <b>Cu₂O↓</b> + 4H⁺"]]
     },
     seliwanoff: {
-      name: "Seliwanoff’s", detects: "Ketoses vs aldoses", heat: true, ref: [9],
+      name: "Seliwanoff’s", detects: "Ketoses vs. aldoses", heat: true, ref: [9],
       reagent: { liq: "#f4efe6", a: .6 },
       run: s => s.keto ? { st: { liq: "#c2185b" }, pos: 1, obs: s.mono ? "<b>Cherry-red</b> colour within ~1 min." : "<b>Cherry-red</b> colour: hot HCl hydrolyses sucrose, releasing fructose." }
         : s.glc ? { st: { liq: "#f6e3e8", a: .7 }, pos: 0, obs: "<b>No colour in 1 min.</b> Faint pink only after prolonged heating (aldoses dehydrate slowly)." }
