@@ -382,7 +382,7 @@
       name: "Seliwanoff’s", detects: "Ketoses vs. aldoses", heat: true, ref: [9],
       reagent: { liq: "#f4efe6", a: .6 },
       run: s => s.keto ? { st: { liq: "#c2185b" }, pos: 1, obs: s.mono ? "<b>Cherry-red</b> colour within ~1 min." : "<b>Cherry-red</b> colour: hot HCl hydrolyses sucrose, releasing fructose." }
-        : s.glc ? { st: { liq: "#f6e3e8", a: .7 }, pos: 0, obs: "<b>No colour in 1 min.</b> Faint pink only after prolonged heating (aldoses dehydrate slowly)." }
+        : s.red ? { st: { liq: "#f6e3e8", a: .7 }, pos: 0, obs: "<b>No colour in 1 min.</b> Faint pink only after prolonged heating (aldoses dehydrate slowly)." }
           : { st: { liq: "#f4efe6", a: .6 }, pos: 0, obs: "<b>No colour change.</b>" },
       principle: "Hot HCl dehydrates ketohexoses to 5-hydroxymethylfurfural (HMF) much faster than aldohexoses. HMF condenses with resorcinol to a red product.",
       reagentTxt: "Resorcinol in 3–6 M HCl",
@@ -422,7 +422,7 @@
       reagentTxt: "Glucose oxidase + peroxidase + 4-aminoantipyrine + phenol in buffer (pH ~7)",
       proc: "10 µL sample + 1 mL reagent; 37 °C for 10 min; read absorbance at ~505 nm.",
       swatches: [["#f8eef1", "Negative"], ["#f3a3bd", "Low"], ["#de3f78", "High"]],
-      eq: [["Step 1 (GOD)", "β-D-glucose + O₂ + H₂O <span class='arrow'>→</span> D-gluconic acid + <b>H₂O₂</b>"], ["Step 2 (POD)", "2H₂O₂ + 4-aminoantipyrine + phenol <span class='arrow'>→</span> quinoneimine dye (red) + 4H₂O"]]
+      eq: [["Step 1 (GOD)", "β-D-glucose + O₂ <span class='arrow'>→</span> D-glucono-δ-lactone + <b>H₂O₂</b> (lactone + H₂O → gluconic acid)"], ["Step 2 (POD)", "2H₂O₂ + 4-aminoantipyrine + phenol <span class='arrow'>→</span> quinoneimine dye (red) + 4H₂O"]]
     }
   };
 
@@ -569,7 +569,7 @@
     future: `<circle cx="70" cy="55" r="30" fill="none" stroke="#64748b" stroke-width="3" stroke-dasharray="6 5"/><path d="M70 30 l5 17 17 5 -17 5 -5 17 -5 -17 -17 -5 17 -5z" fill="#64748b"/>`
   };
   const TL = [
-    ["c. 500 BCE", "obs", "“Honey urine”", "Indian physicians Sushruta and Charaka describe <i>madhumeha</i> — sweet urine that attracts ants.", [13]],
+    ["c. 500 BCE", "obs", "“Honey urine”", "Indian physicians (Sushruta, later Charaka) describe <i>madhumeha</i> — sweet urine that attracts ants.", [13]],
     ["1674", "obs", "Sweet as honey", "Thomas Willis notes that diabetic urine tastes remarkably sweet: tasting was the first glucose test.", [13]],
     ["1776", "obs", "Sugar is the cause", "Matthew Dobson evaporates diabetic urine and recovers a sugary residue; serum also tastes sweet — the first hint of high blood sugar.", [13]],
     ["1841", "wet", "Trommer’s test", "Copper(II) in alkali turns red with sugar in urine — the first copper reduction test.", [14]],
@@ -586,9 +586,9 @@
     ["1999", "cgm", "First CGM", "MiniMed CGMS: a 3-day sensor whose data are downloaded later by the clinician (no live display).", [19]],
     ["2001", "cgm", "GlucoWatch", "A wrist device that drew fluid through skin by reverse iontophoresis; skin irritation limited use.", [19]],
     ["2006", "cgm", "Real-time CGM", "Dexcom STS shows live readings and alarms.", [19]],
-    ["2014–17", "cgm", "Factory-calibrated CGM", "FreeStyle Libre: 14-day sensor, no fingerstick calibration (Europe 2014, US 2017).", [19]],
+    ["2014–17", "cgm", "Factory-calibrated CGM", "FreeStyle Libre: no fingerstick calibration; 14-day sensor in Europe (2014), 10-day in the US (2017), 14-day there from 2018.", [19]],
     ["2016", "cgm", "Hybrid closed loop", "MiniMed 670G: the CGM signal automatically adjusts an insulin pump.", [19]],
-    ["2018", "cgm", "No calibration; implantable", "Dexcom G6 needs no fingerstick calibration; Eversense is the first implanted, fluorescence-based CGM.", [19]],
+    ["2018", "cgm", "No calibration; implantable", "Dexcom G6 becomes the first iCGM, with no fingerstick calibration; Eversense is the first implanted, fluorescence-based CGM.", [19]],
     ["2022", "cgm", "Smaller, phone-direct", "Dexcom G7 and FreeStyle Libre 3: one-piece wearables that send readings straight to a smartphone.", [24]],
     ["2024", "cgm", "Over the counter", "FDA clears the first CGM sold without prescription (Dexcom Stelo); a one-year implantable (Eversense 365) follows.", [20, 24]],
     ["Next", "future", "Emerging", "Non-invasive optical sensing, microneedle patches, sweat/tear sensors, multi-analyte (glucose + ketone) sensors and fully automated insulin delivery.", [22]]
@@ -613,7 +613,7 @@
      Quiz
      --------------------------------------------------------- */
   const QUIZ = [
-    ["Which sugar is non-reducing?", ["Maltose", "Lactose", "Sucrose", "Fructose"], 2, "Sucrose’s α1↔β2 bond uses both anomeric carbons, so no ring can open."],
+    ["Which sugar is non-reducing?", ["Maltose", "Lactose", "Sucrose", "Fructose"], 2, "Sucrose’s α1↔2β bond uses both anomeric carbons, so no ring can open."],
     ["Fructose is a ketose, yet it gives a positive Benedict’s test because…", ["it contains an aldehyde at C1", "in hot alkali it isomerises via an enediol to aldoses", "Benedict’s reagent detects all carbohydrates", "it hydrolyses to glucose"], 1, "Base-catalysed enolisation (Lobry de Bruyn–van Ekenstein) converts it to glucose/mannose."],
     ["The brick-red precipitate in Benedict’s and Fehling’s tests is…", ["CuO", "Cu₂O", "Cu(OH)₂", "metallic Cu"], 1, "Cu²⁺ is reduced to Cu⁺, which precipitates as copper(I) oxide."],
     ["Which test is specific for glucose?", ["Molisch’s", "Barfoed’s", "Seliwanoff’s", "Glucose oxidase–peroxidase"], 3, "Glucose oxidase acts on β-D-glucose only; the other tests respond to classes of sugars."],

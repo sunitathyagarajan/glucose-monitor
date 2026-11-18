@@ -110,7 +110,7 @@
       <text x="480" y="50" text-anchor="middle" font-size="11.5" font-weight="600" style="fill:var(--bad)">locked: no ring opening</text>
       <g transform="translate(469,58)" style="fill:var(--bad)"><rect x="0" y="9" width="22" height="16" rx="3"/><path d="M5 9 V5 a6 6 0 0 1 12 0 V9" fill="none" stroke="var(--bad)" style="stroke:var(--bad)" stroke-width="2.6"/></g>
       <rect x="350" y="192" width="260" height="42" rx="8" fill="var(--surface-2)" style="fill:var(--surface-2)"/>
-      <text x="480" y="209" text-anchor="middle" font-size="12">α1↔β2 bond uses <tspan font-weight="700">both</tspan> anomeric carbons</text>
+      <text x="480" y="209" text-anchor="middle" font-size="12">α1↔2β bond uses <tspan font-weight="700">both</tspan> anomeric carbons</text>
       <text x="480" y="226" text-anchor="middle" font-size="12">→ ring cannot open → no free –CHO</text>
       </g>
     </svg>
@@ -192,8 +192,8 @@
       <h4>Aldose vs. ketose: Glucose and fructose</h4>
       <p class="small">Fischer projections. Horizontal bonds point toward you; each cross is a carbon. The –OH on the <b>last chiral carbon (C5) on the right</b> makes both sugars <b>D</b>-sugars.</p>
       <div style="display:flex; gap:8px; justify-content:space-around">
-        <div class="center"><svg class="diagram" id="fischerGlc" viewBox="0 0 200 320" style="max-width:170px"></svg><div class="small"><b>D-Glucose</b><br><span class="muted">aldose: C1 = –CHO</span></div></div>
-        <div class="center"><svg class="diagram" id="fischerFru" viewBox="0 0 200 320" style="max-width:170px"></svg><div class="small"><b>D-Fructose</b><br><span class="muted">ketose: C2 = C=O</span></div></div>
+        <div class="center"><svg class="diagram" id="fischerGlc" role="img" aria-label="Fischer projection of D-glucose" viewBox="0 0 200 320" style="max-width:170px"></svg><div class="small"><b>D-Glucose</b><br><span class="muted">aldose: C1 = –CHO</span></div></div>
+        <div class="center"><svg class="diagram" id="fischerFru" role="img" aria-label="Fischer projection of D-fructose" viewBox="0 0 200 320" style="max-width:170px"></svg><div class="small"><b>D-Fructose</b><br><span class="muted">ketose: C2 = C=O</span></div></div>
       </div>
       <p class="small muted" style="margin-top:10px">C3–C6 are identical; only C1–C2 differ.</p>
     </div>
@@ -215,8 +215,8 @@
     <div class="card">
       <p class="small">In water, the C5–OH attacks the C1 aldehyde to form a six-membered <b>pyranose</b> ring (a hemiacetal). C1 becomes a new chiral centre — the <b>anomeric carbon</b> — giving two anomers.<sup class="cite"><a href="#ref-1">1</a></sup></p>
       <div style="display:flex; gap:6px; justify-content:space-around; flex-wrap:wrap">
-        <div class="center"><svg class="diagram" id="haworthA" viewBox="0 0 240 180" style="max-width:220px"></svg><div class="small"><b>α-D-glucopyranose</b><br><span class="muted">C1–OH down (trans to CH₂OH)</span></div></div>
-        <div class="center"><svg class="diagram" id="haworthB" viewBox="0 0 240 180" style="max-width:220px"></svg><div class="small"><b>β-D-glucopyranose</b><br><span class="muted">C1–OH up (cis to CH₂OH)</span></div></div>
+        <div class="center"><svg class="diagram" id="haworthA" role="img" aria-label="Haworth projection of alpha-D-glucopyranose" viewBox="0 0 240 180" style="max-width:220px"></svg><div class="small"><b>α-D-glucopyranose</b><br><span class="muted">C1–OH down (trans to CH₂OH)</span></div></div>
+        <div class="center"><svg class="diagram" id="haworthB" role="img" aria-label="Haworth projection of beta-D-glucopyranose" viewBox="0 0 240 180" style="max-width:220px"></svg><div class="small"><b>β-D-glucopyranose</b><br><span class="muted">C1–OH up (cis to CH₂OH)</span></div></div>
       </div>
       <div class="eq" style="text-align:center">α-D-glucose <span class="arrow">⇌</span> open-chain aldehyde <span class="arrow">⇌</span> β-D-glucose</div>
       <p class="small muted">β dominates because, in the chair, all its –OH groups are equatorial (check the 3D model).</p>
@@ -235,7 +235,7 @@
 <!-- ======================= 3. TESTS ======================= -->
 <section class="module" id="tests">
   <div class="section-head"><span class="section-num">03</span><h2>Traditional tests for glucose</h2></div>
-  <p class="section-intro">Classical tests use three ideas: <b>reduction</b> of metal ions by the free aldehyde (Cu²⁺ → Cu⁺, Ag⁺ → Ag), <b>dehydration</b> of sugars by strong acid into coloured furfural products, and <b>enzymes</b> that react with glucose alone.</p>
+  <p class="section-intro">Most classical tests use one of three ideas: <b>reduction</b> of metal ions by the free aldehyde (Cu²⁺ → Cu⁺, Ag⁺ → Ag), <b>dehydration</b> of sugars by strong acid to furfurals, which condense with phenols to give coloured products, and <b>enzymes</b> that react with glucose alone.</p>
 
   <div class="card">
     <h3 style="margin-top:0">Virtual test-tube lab</h3>
@@ -352,7 +352,7 @@
   <h3>Generations of electrochemical glucose sensors</h3>
   <div class="grid g4">
     <div class="card flat"><span class="label-pill pill-neutral">1st gen</span><h4 style="margin-top:8px">Oxygen + H₂O₂</h4><p class="small muted">Glucose oxidase uses O₂; the electrode detects the H₂O₂ made. Clark (1962), Updike &amp; Hicks (1967).<sup class="cite"><a href="#ref-16">16</a>,<a href="#ref-17">17</a></sup></p></div>
-    <div class="card flat"><span class="label-pill pill-neutral">2nd gen</span><h4 style="margin-top:8px">Mediators</h4><p class="small muted">An artificial electron shuttle (ferrocene, ferricyanide, osmium complexes) replaces O₂. Basis of most test strips.<sup class="cite"><a href="#ref-18">18</a></sup></p></div>
+    <div class="card flat"><span class="label-pill pill-neutral">2nd gen</span><h4 style="margin-top:8px">Mediators</h4><p class="small muted">An artificial electron shuttle (ferrocene, ferricyanide, osmium complexes) replaces O₂. Basis of most test strips.<sup class="cite"><a href="#ref-18">18</a>,<a href="#ref-23">23</a></sup></p></div>
     <div class="card flat"><span class="label-pill pill-neutral">3rd gen</span><h4 style="margin-top:8px">Direct electron transfer</h4><p class="small muted">The enzyme passes electrons straight to a (nano-structured) electrode — no mediator.<sup class="cite"><a href="#ref-21">21</a></sup></p></div>
     <div class="card flat"><span class="label-pill pill-neutral">“4th gen”</span><h4 style="margin-top:8px">Non-enzymatic</h4><p class="small muted">Glucose is oxidised directly on metal / metal-oxide nanostructures (Pt, Au, Ni, Cu). Mostly research.<sup class="cite"><a href="#ref-22">22</a></sup></p></div>
   </div>
@@ -478,6 +478,6 @@
 
 <script src="assets/js/common.js?v=2"></script>
 <script src="assets/js/molviewer.js?v=2"></script>
-<script src="assets/js/main.js?v=4"></script>
+<script src="assets/js/main.js?v=5"></script>
 </body>
 </html>

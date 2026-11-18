@@ -31,7 +31,7 @@
 
 <div class="hero">
   <h1>Inside a modern glucose sensor</h1>
-  <p class="lede">A continuous glucose monitor (CGM) is an enzyme electrode on a flexible filament only a few hairs wide, worn under the skin for up to two weeks. It turns glucose molecules into electrons which in turn are translated into a number on your phone.</p>
+  <p class="lede">A continuous glucose monitor (CGM) is an enzyme electrode on a flexible filament only a few hairs wide, worn under the skin for 10–15 days. It turns glucose molecules into electrons, which in turn are translated into a number on your phone.</p>
   <div class="readout" style="justify-content:center">
     <div class="r"><span>Reading every</span><b>1–5 min</b></div>
     <div class="r"><span>Wear time</span><b>10–15 days</b></div>
@@ -58,7 +58,7 @@
     <div class="card" style="padding:12px"><svg class="diagram" id="anatomySvg" viewBox="0 0 800 470" role="img" aria-label="Cross-section of a CGM on the skin"></svg></div>
     <div class="card info-panel" id="anatomyInfo"></div>
   </div>
-  <p class="small muted" style="margin-top:10px">Insertion: a spring-loaded applicator pushes a hollow needle carrying the filament into the skin, then retracts the needle, leaving only the soft filament behind. Modern devices combine sensor, electronics and battery in one disposable unit.<sup class="cite"><a href="#ref-3">3</a>,<a href="#ref-19">19</a></sup></p>
+  <p class="small muted" style="margin-top:10px">Insertion: a spring-loaded applicator pushes a hollow needle carrying the filament into the skin, then retracts the needle, leaving only the soft filament behind. Modern devices combine sensor, electronics and battery in one disposable unit.<sup class="cite"><a href="#ref-3">3</a>,<a href="#ref-18">18</a></sup></p>
 </section>
 
 <!-- ============ ELECTRODE ============ -->
@@ -128,7 +128,7 @@
 
   <div class="grid g3" style="margin-top:20px">
     <div class="card flat"><h4>Why the voltage matters</h4><p class="small">Oxidising H₂O₂ on Pt needs ≈ +0.6 V vs. Ag/AgCl. At that potential paracetamol, ascorbate and urate are oxidised too — hence the interference-rejection layer. Mediated sensors work near 0 V and largely avoid this.<sup class="cite"><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup></p></div>
-    <div class="card flat"><h4>The oxygen deficit</h4><p class="small">ISF contains roughly 50–100× more glucose than dissolved O₂. Without a barrier, O₂ runs out first and the signal stops rising. A glucose-limiting membrane lets O₂ through far more easily than glucose.<sup class="cite"><a href="#ref-21">21</a>,<a href="#ref-2">2</a></sup></p></div>
+    <div class="card flat"><h4>The oxygen deficit</h4><p class="small">ISF contains roughly 50–100× more glucose than dissolved O₂. Without a barrier, O₂ runs out first and the signal stops rising. A glucose-limiting membrane lets O₂ through far more easily than glucose.<sup class="cite"><a href="#ref-2">2</a>,<a href="#ref-21">21</a></sup></p></div>
     <div class="card flat"><h4>Two electrons per glucose</h4><p class="small">Each glucose that reacts yields one H₂O₂ and therefore 2 e⁻. A current of 1 nA corresponds to ≈ 3 × 10⁹ glucose molecules per second (1 nA ÷ (2 × 1.6 × 10⁻¹⁹ C)).</p></div>
   </div>
 </section>
@@ -151,7 +151,7 @@
     <div class="card flat">
       <h4>Calibration</h4>
       <div class="eq">glucose = (i − i₀) / S</div>
-      <p class="small">Older CGMs needed fingerstick readings twice a day to estimate S and i₀. Tight control of membrane thickness and enzyme loading in manufacturing now allows <b>factory calibration</b> — no fingersticks.<sup class="cite"><a href="#ref-9">9</a></sup></p>
+      <p class="small">Older CGMs needed fingerstick readings twice a day to estimate S and i₀. Tight control of membrane thickness and enzyme loading in manufacturing now allows <b>factory calibration</b> — no fingersticks.<sup class="cite"><a href="#ref-9">9</a>,<a href="#ref-19">19</a></sup></p>
     </div>
     <div class="card flat">
       <h4>Algorithms</h4>
@@ -326,6 +326,6 @@
 </footer>
 
 <script src="assets/js/common.js?v=2"></script>
-<script src="assets/js/sensor.js?v=6"></script>
+<script src="assets/js/sensor.js?v=7"></script>
 </body>
 </html>

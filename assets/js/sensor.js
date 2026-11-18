@@ -404,11 +404,16 @@
     tbl.innerHTML = `<thead><tr><th>Reference (lab)</th><th>CGM reading</th><th>|ARD|</th></tr></thead><tbody>` +
       REF.map((r, i) => `<tr><td class="mono">${r}</td><td><input type="number" min="20" max="500" value="${DEF[i]}" data-i="${i}" style="width:90px" aria-label="CGM reading ${i + 1}"></td><td class="mono" id="ard${i}"></td></tr>`).join("") + `</tbody>`;
     function calc() {
-      let sum = 0;
-      REF.forEach((r, i) => { const c = +tbl.querySelector(`[data-i="${i}"]`).value || 0; const a = Math.abs(c - r) / r * 100; sum += a; $("#ard" + i).textContent = a.toFixed(1) + "%"; });
-      const m = sum / REF.length;
+      let sum = 0, n = 0;
+      REF.forEach((r, i) => {
+        const raw = tbl.querySelector(`[data-i="${i}"]`).value, c = +raw;
+        if (raw === "" || !isFinite(c) || c < 20 || c > 500) { $("#ard" + i).textContent = "—"; return; } // blank or outside 20–500 mg/dL: skip
+        const a = Math.abs(c - r) / r * 100; sum += a; n++; $("#ard" + i).textContent = a.toFixed(1) + "%";
+      });
+      if (!n) { $("#mardOut").textContent = "—"; $("#mardTxt").textContent = "Enter CGM readings between 20 and 500 mg/dL."; return; }
+      const m = sum / n;
       $("#mardOut").textContent = m.toFixed(1) + "%";
-      $("#mardTxt").textContent = m < 10 ? "Excellent — typical of current iCGMs (≈ 8–10%)" : m < 15 ? "Acceptable — similar to earlier-generation CGMs" : "Poor — would not meet modern accuracy standards";
+      $("#mardTxt").textContent = m < 5 ? "Near-perfect — better than any current CGM achieves" : m < 10 ? "Excellent — typical of current iCGMs (≈ 8–10%)" : m < 15 ? "Acceptable — similar to earlier-generation CGMs" : "Poor — would not meet modern accuracy standards";
     }
     tbl.addEventListener("input", calc); calc();
   })();
@@ -426,7 +431,7 @@
       eq: ["Enzyme(FADH₂) <span class='arrow'>→</span> Enzyme(FAD) + 2H⁺ + 2e⁻ (to electrode)"],
       pro: "Shortest electron path; no O₂ or mediator; low potential.", con: "In GOx the FAD is buried deep in the protein, so direct transfer is slow; needs nanomaterials (carbon nanotubes, graphene, gold nanoparticles) or engineered enzymes.", ex: "Mostly research; some FAD-dependent glucose dehydrogenase sensors.", ref: [2, 3] },
     g4: { t: "“Fourth generation”: Non-enzymatic", flow: [["Glucose", "#f59e0b"], ["Metal / metal-oxide surface (Pt, Au, Ni, Cu)", "#a1a1aa"]],
-      eq: ["Ni(OH)₂ + OH⁻ <span class='arrow'>→</span> NiOOH + H₂O + e⁻", "NiOOH + glucose <span class='arrow'>→</span> Ni(OH)₂ + gluconolactone"],
+      eq: ["Ni(OH)₂ + OH⁻ <span class='arrow'>→</span> NiOOH + H₂O + e⁻", "2NiOOH + glucose <span class='arrow'>→</span> 2Ni(OH)₂ + gluconolactone"],
       pro: "No enzyme to degrade; potentially very long-lived and cheap.", con: "Poor selectivity; many need alkaline pH; surfaces are poisoned by chloride and proteins in body fluids.", ex: "Research sensors (nanostructured Ni, Cu, Pt alloys).", ref: [3] },
     opt: { t: "Optical: Fluorescent boronic-acid sensor", flow: [["Glucose", "#f59e0b"], ["Boronic-acid fluorophore", "#ec4899"], ["LED → fluorescence", "#22d3ee"], ["Photodiode", "#a1a1aa"]],
       eq: ["R–B(OH)₂ + glucose (cis-diol) <span class='arrow'>⇌</span> cyclic boronate ester + 2H₂O  → fluorescence ↑"],
