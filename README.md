@@ -1,5 +1,8 @@
 # Glucose & Glucose Sensors: a teaching module
 
+**🌐 Website: [sunitathyagarajan.github.io/glucose-monitor](https://sunitathyagarajan.github.io/glucose-monitor/)**
+(modern sensor page: [sensor.html](https://sunitathyagarajan.github.io/glucose-monitor/sensor.html))
+
 An interactive, self-contained web module for students on sugar chemistry, glucose detection and modern glucose sensors.
 
 ## Pages
