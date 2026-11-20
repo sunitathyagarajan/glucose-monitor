@@ -199,16 +199,16 @@
       // pt electrode gradient
       const g = ctx.createLinearGradient(460, 0, 640, 0); g.addColorStop(0, "#d4d4d8"); g.addColorStop(.4, "#f4f4f5"); g.addColorStop(1, "#a1a1aa");
       ctx.fillStyle = g; ctx.fillRect(460, 0, 180, H);
-      ctx.fillStyle = "#3f3f46"; ctx.font = "600 13px system-ui, sans-serif"; ctx.textAlign = "center";
-      ctx.fillText("Pt electrode", 550, H / 2 - 8); ctx.font = "12px system-ui, sans-serif"; ctx.fillText("+0.6 V vs. Ag/AgCl", 550, H / 2 + 10);
+      ctx.fillStyle = "#3f3f46"; ctx.font = "600 13px Calibri, Carlito, sans-serif"; ctx.textAlign = "center";
+      ctx.fillText("Pt electrode", 550, H / 2 - 8); ctx.font = "12px Calibri, Carlito, sans-serif"; ctx.fillText("+0.6 V vs. Ag/AgCl", 550, H / 2 + 10);
       ctx.fillText("→ e⁻ to potentiostat", 550, H / 2 + 28);
       // layer titles
-      ctx.font = "600 10.5px system-ui, sans-serif"; ctx.fillStyle = dark ? "#cbd5e1" : "#334155";
+      ctx.font = "600 10.5px Calibri, Carlito, sans-serif"; ctx.fillStyle = dark ? "#cbd5e1" : "#334155";
       ctx.fillText("Interstitial fluid", 110, 16); ctx.fillText("GOx enzyme layer", 367, 16);
       [["outer layer", 232.5], ["glucose-limiting membrane", 275], ["interference rejection", 445]].forEach(([t, x]) => {
         ctx.save(); ctx.translate(x + 4, 8); ctx.rotate(Math.PI / 2); ctx.textAlign = "left"; ctx.fillText(t, 0, 0); ctx.restore();
       });
-      ctx.font = "700 11px system-ui, sans-serif"; ctx.fillStyle = "#dc2626";
+      ctx.font = "700 11px Calibri, Carlito, sans-serif"; ctx.fillStyle = "#dc2626";
       if (!st.glm) ctx.fillText("OFF", 275, H - 10);
       if (!st.irl) ctx.fillText("OFF", 445, H - 10);
       // GOx
@@ -225,7 +225,7 @@
       for (const s of sparks) {
         ctx.strokeStyle = s.col; ctx.lineWidth = 2; ctx.globalAlpha = s.life / 18;
         ctx.beginPath(); ctx.arc(s.x, s.y, 8 - s.life / 3, 0, 7); ctx.stroke();
-        ctx.fillStyle = s.col; ctx.font = "700 10px system-ui"; ctx.fillText("2e⁻", s.x + 22 - s.life / 2, s.y - 4); ctx.globalAlpha = 1;
+        ctx.fillStyle = s.col; ctx.font = "700 10px Calibri, Carlito, sans-serif"; ctx.fillText("2e⁻", s.x + 22 - s.life / 2, s.y - 4); ctx.globalAlpha = 1;
       }
     }
     let lastRead = 0;
